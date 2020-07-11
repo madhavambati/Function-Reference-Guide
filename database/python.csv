@@ -1,0 +1,509 @@
+,name,desp,example_input,Syntax,example_output,Parameters,param_description
+0,abs(),The abs() function returns the absolute value of the specified number.,x = abs(-7.25),abs(n),7.25,n,Required. A number
+1,all(),"The all() function returns True if all items in an iterable are true, otherwise it returns False. If the iterable object is empty, the all() function also returns True.","mylist = [0, 1, 1]
+x = all(mylist)",all(iterable),FALSE,iterable,"An iterable object (list, tuple, dictionary)"
+2,any(),"The any() function returns True if any item in an iterable are true, otherwise it returns False.","mylist = [False, True, False]
+x = any(mylist)",any(iterable),TRUE,iterable,"An iterable object (list, tuple, dictionary)"
+3,ascii(),"The ascii() function returns a readable version of any object (Strings, Tuples, Lists, etc).
+The ascii() function will replace any non-ascii characters with escape characters:
+Ã¥ will be replaced with \xe5.","x = ascii(""My name is StÃ¥le"")",ascii(object) ,My name is St\e5le' ,object,"  An object, like String, List, Tuple, Dictionary etc."
+4,bin(),"The bin() function returns the binary version of a specified integer.
+The result will always start with the prefix 0b.",x = bin(36),bin(n),0b100100,n,  Required. An integer
+5,bytearray(),"The bytearray() function returns a bytearray object. It can convert objects into bytearray objects, or create empty bytearray object of the specified size.",x = bytearray(4),"bytearray(x, encoding, error)",,x/encoding/error,"A source to use when creating the bytearray object. If it is an integer, an empty bytearray object of the specified size will be created. If it is a String, make sure you specify the encoding of the source./The encoding of the string/Specifies what to do if the encoding fails."
+6,callable(),"The callable() function returns True if the specified object is callable, otherwise it returns False.","def x():
+  a = 5
+
+print(callable(x))",callable(object),TRUE,object,The object you want to test if it is callable or not.
+7,chr(),The chr() function returns the character that represents the specified unicode.,x = chr(97) ,chr(number),a,number,An integer representing a valid Unicode code point
+8,complex(),The complex() function returns a complex number by specifying a real number and an imaginary number.,"x = complex(3, 5)","complex(real, imaginary)",(3+5j),real/imaginary,An integer to assign for real part/An integer to assign for real part
+9,dictionary.copy(),The copy() method returns a copy of the specified dictionary.,"car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+x = car.copy()
+
+print(x) ",dictionary.copy(),"{'brand': 'Ford', 'model': 'Mustang', 'year': 1964} ",,
+10,dictionary.fromkeys(),The fromkeys() method returns a dictionary with the specified keys and the specified value.,"x = ('key1', 'key2', 'key3')
+y = 0
+
+thisdict = dict.fromkeys(x, y)
+
+print(thisdict)","dict.fromkeys(keys, value)","['key1': 0, 'key2': 0, 'key3': 0] ",keys/value,Required. An iterable specifying the keys of the new dictionary/Optional. The value for all keys. Default value is None 
+11,dictionary.get(),The get() method returns the value of the item with the specified key.,"car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+x = car.get(""model"")
+
+print(x) ","dictionary.get(keyname, value) ",Mustang ,keyname,  Required. The keyname of the item you want to return the value from
+12,dictionary.items(),"The items() method returns a view object. The view object contains the key-value pairs of the dictionary, as tuples in a list.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+x = car.items()
+
+print(x)",dictionary.items() ,"dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 1964)]) ",,
+13,dictionary.keys(),"The keys() method returns a view object. The view object contains the keys of the dictionary, as a list.
+
+The view object will reflect any changes done to the dictionary, see example below.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+x = car.keys()
+
+print(x) ",dictionary.keys() ,"dict_keys(['brand', 'model', 'year']) ",,
+14,dictionary.pop(),"The pop() method removes the specified item from the dictionary.
+
+The value of the removed item is the return value of the pop() method, see example below.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+car.pop(""model"")
+
+print(car) ","dictionary.pop(keyname, defaultvalue)","{'brand': 'Ford', 'year': 1964} ",keyname/defaultvalue,"  Required. The keyname of the item you want to remove/  Optional. A value to return if the specified key do not exist.
+
+If this parameter is not specified, and the no item with the specified key is found, an error is raised"
+15,dictionary.popitem(),"The popitem() method removes the item that was last inserted into the dictionary. In versions before 3.7, the popitem() method removes a random item.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+car.popitem()
+
+print(car) ",dictionary.popitem() ,"{'brand': 'Ford', 'model': 'Mustang'} ",,
+16,dictionary.update(),"The update() method inserts the specified items to the dictionary.
+
+The specified items can be a dictionary, or an iterable object.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+car.update({""color"": ""White""})
+
+print(car) ",dictionary.update(iterable) ,"{'brand': 'Ford', 'model': 'Mustang', 'year': 1964, 'color': 'White'} ",iterable,"A dictionary or an iterable object with key value pairs, that will be inserted to the dictionary"
+17,dictionary.values(),"The values() method returns a view object. The view object contains the values of the dictionary, as a list.","car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+x = car.values()
+
+print(x) ",dictionary.values() ,"dict_values(['Ford', 'Mustang', 1964]) ",,
+18,dictonary.clear(),The clear() method removes all the elements from a dictionary.,"car = {
+  ""brand"": ""Ford"",
+  ""model"": ""Mustang"",
+  ""year"": 1964
+}
+
+car.clear()
+
+print(car) ",dictionary.clear(),{},,
+19,dir(),"The dir() function returns all properties and methods of the specified object, without the values.
+
+This function will return all the properties and methods, even built-in properties which are default for all object.","class Person:
+  name = ""John""
+  age = 36
+  country = ""Norway""
+
+print(dir(Person))",dir(object),"['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'age', 'country', 'name']",object,The object you want to see the valid attributes of
+20,divmod(),The divmod() function returns a tuple containing the quotient  and the remainder when argument1 (divident) is divided by argument2 (divisor).,"x = divmod(5, 2)","divmod(divident, divisor) ","(2, 1)",divident/divisor,  A Number. The number you want to divide/A Number. The number you want to divide with
+21,enumerate(),"The enumerate() function takes a collection (e.g. a tuple) and returns it as an enumerate object.
+
+The enumerate() function adds a counter as the key of the enumerate object.","x = ('apple', 'banana', 'cherry')
+y = enumerate(x)","enumerate(iterable, start) ","[(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+",iterable/start,An iterable object/A Number. Defining the start number of the enumerate object. Default 0
+22,eval(),"The eval() function evaluates the specified expression, if the expression is a legal Python statement, it will be executed.","x = 'print(55)'
+eval(x) ","eval(expression, globals, locals)",55,expression/globals/locals,"A String, that will be evaluated as Python code/Optional. A dictionary containing global parameters/Optional. A dictionary containing local parameters"
+23,float(),The float() function converts the specified value into a floating point number.,x = float(3),float(value) ,3,value,A number or a string that can be converted into a floating point number
+24,format(),The format() function formats a specified value into a specified format.,"x = format(0.5, '%')","format(value, format) ",50.00%,value /format,"A value of any format/The format you want to format the value into.
+Legal values:
+'<' - Left aligns the result (within the available space)
+'>' - Right aligns the result (within the available space)
+'^' - Center aligns the result (within the available space)
+'=' - Places the sign to the left most position
+'+' - Use a plus sign to indicate if the result is positive or negative
+'-' - Use a minus sign for negative values only
+' ' - Use a leading space for positive numbers
+',' - Use a comma as a thousand separator
+'_' - Use a underscore as a thousand separator
+'b' - Binary format
+'c' - Converts the value into the corresponding unicode character
+'d' - Decimal format
+'e' - Scientific format, with a lower case e
+'E' - Scientific format, with an upper case E
+'f' - Fix point number format
+'F' - Fix point number format, upper case
+'g' - General format
+'G' - General format (using a upper case E for scientific notations)
+'o' - Octal format
+'x' - Hex format, lower case
+'X' - Hex format, upper case
+'n' - Number format
+'%' - Percentage format "
+25,getattr(),The getattr() function returns the value of the specified attribute from the specified object.,"class Person:
+  name = ""John""
+  age = 36
+  country = ""Norway""
+
+x = getattr(Person, 'age')","getattr(object, attribute, default)",36,object/attribute/default,Required. An object./  The name of the attribute you want to get the value from/  Optional. The value to return if the attribute does not exist
+26,globals(),"The globals() function returns the global symbol table as a dictionary.
+
+A symbol table contains necessary information about the current program","x = globals()
+print(x)",globals(),,No parameters,
+27,hex(),"The hex() function converts the specified number into a hexadecimal value.
+
+The returned string always starts with the prefix 0x.",x = hex(255),hex(number),0xff ,number,  An Integer
+28,input(),The input() function allows user input.,"print('Enter your name:')
+x = input()
+print('Hello, ' + x) ",input(prompt) ,"Enter your name: john Doe
+
+Hello, john Doe",prompt,"A String, representing a default message before the input."
+29,int(),The int() function converts the specified value into an integer number.,x = int(3.5),"int(value, base) ",3,value/base,  A number or a string that can be converted into an integer number/  A number representing the number format. Default value: 10
+30,isinstance(),"The isinstance() function returns True if the specified object is of the specified type, otherwise False.
+
+If the type parameter is a tuple, this function will return True if the object is one of the types in the tuple.","x = isinstance(5, int) ","isinstance(object, type)",TRUE,object/type,"Required. An object./  A type or a class, or a tuple of types and/or classes"
+31,iter(),The iter() function returns an iterator object.,"x = iter([""apple"", ""banana"", ""cherry""])
+print(next(x))
+print(next(x))
+print(next(x)) ","iter(object, sentinel) ","apple
+banana
+cherry ",object/sentinel,Required. An iterable object/Optional. If the object is a callable object the iteration will stop when the returned value is the same as the sentinel
+32,len(),"The len() function returns the number of items in an object.
+
+When the object is a string, the len() function returns the number of characters in the string.
+","mylist = [""apple"", ""banana"", ""cherry""]
+x = len(mylist) ",len(object) ,3,object,Required. An object. Must be a sequence or a collection
+33,list.append(),The append() method appends an element to the end of the list.,"fruits = ['apple', 'banana', 'cherry']
+fruits.append(""orange"") ",list.append(elmnt) ,"['apple', 'banana', 'cherry', 'orange']",elmnt,"Required. An element of any type (string, number, object etc.)"
+34,list.clear,"The clear() method removes all the elements from a list.
+","fruits = ['apple', 'banana', 'cherry', 'orange']
+
+fruits.clear()",list.clear(),[],,
+35,list.copy,The copy() method returns a copy of the specified list.,"fruits = ['apple', 'banana', 'cherry', 'orange']
+
+x = fruits.copy()",list.copy() ,,,"['apple', 'banana', 'cherry']"
+36,list.count,The count() method returns the number of elements with the specified value.,"fruits = ['apple', 'banana', 'cherry']
+
+x = fruits.count(""cherry"")",list.count(value) ,1,value,"Required. Any type (string, number, list, tuple, etc.). The value to search for."
+37,list.index,The index() method returns the position at the first occurrence of the specified value.,"fruits = ['apple', 'banana', 'cherry']
+
+x = fruits.index(""cherry"") ",list.index(elmnt) ,2,elmnt,"Required. Any type (string, number, list, etc.). The element to search for"
+38,list.insert,The insert() method inserts the specified value at the specified position.,"fruits = ['apple', 'banana', 'cherry']
+
+fruits.insert(1, ""orange"") ","list.insert(pos, elmnt)","['apple', 'orange', 'banana', 'cherry'] ",pos/elmnt,"Required. A number specifying in which position to insert the value/  Required. An element of any type (string, number, object etc.)"
+39,list.pop,The pop() method removes the element at the specified position.,"fruits = ['apple', 'banana', 'cherry']
+
+fruits.pop(1) ",list.pop(pos),"['apple', 'cherry']",pos,"  Optional. A number specifying the position of the element you want to remove, default value is -1, which returns the last item"
+40,list.remove,The remove() method removes the first occurrence of the element with the specified value.,"fruits = ['apple', 'banana', 'cherry']
+
+fruits.remove(""banana"") ",list.remove(elmnt) ,"['apple', 'cherry']",elmnt,"Required. Any type (string, number, list etc.) The element you want to remove"
+41,list.reverse,The reverse() method reverses the sorting order of the elements.,"fruits = ['apple', 'banana', 'cherry']
+
+fruits.reverse() ",list.reverse(),"['cherry', 'banana', 'apple'] ",,
+42,list.sort,"The sort() method sorts the list ascending by default.
+
+You can also make a function to decide the sorting criteria(s).","cars = ['Ford', 'BMW', 'Volvo']
+
+cars.sort() ","list.sort(reverse=True|False, key=myFunc) ","['BMW', 'Ford', 'Volvo']",reverse/key,Optional. reverse=True will sort the list descending. Default is reverse=False/Optional. A function to specify the sorting criteria(s)
+43,list(),The list() function creates a list object.,"x = list(('apple', 'banana', 'cherry')) ",list(iterable) ,"['apple', banana', 'cherry'] ",iterable,"Required. A sequence, collection or an iterator object"
+44,map(),The map() function executes a specified function for each item in a iterable. The item is sent to the function as a parameter.,"def myfunc(a):
+  return len(a)
+
+x = map(myfunc, ('apple', 'banana', 'cherry'))
+
+print(x)
+
+print(list(x))
+","map(function, iterables) ","<map object at 0x056D44F0>
+['5', '6', '6'] ",function/iterable,"  Required. The function to execute for each item/Required. A sequence, collection or an iterator object. You can send as many iterables as you like, just make sure the function has one parameter for each iterable."
+45,max(),"The max() function returns the item with the highest value, or the item with the highest value in an iterable.
+
+If the values are strings, an alphabetically comparison is done.","x = max(5, 10) ",max(iterable) ,10,iterable,"An iterable, with one or more items to compare"
+46,memoryview(),The memoryview() function returns a memory view object from a specified object.,"x = memoryview(b""Hello"")
+
+print(x)
+
+#return the Unicode of the first character
+print(x[0])
+
+#return the Unicode of the second character
+print(x[1])",memoryview(obj),"<memory at 0x03348FA0>
+72
+101 ",obj,A Bytes object or a Bytearray object.
+47,min(),"The min() function returns the item with the lowest value, or the item with the lowest value in an iterable.
+
+If the values are strings, an alphabetically comparison is done.","x = min(5, 10) ",min(iterable),5,iterable,"An iterable, with one or more items to compare"
+48,object(),"The object() function returns an empty object.
+
+You cannot add new properties or methods to this object.
+
+This object is the base for all classes, it holds the built-in properties and methods which are default for all classes.","x = object() 
+print(dir(x))",object(),"['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__'] ",no parameters,
+49,oct(),"The oct() function converts an integer into an octal string.
+
+Octal strings in Python are prefixed with 0o.",x = oct(12) ,oct(int),0o14 ,int,An Integer Number
+50,open(),"The open() function opens a file, and returns it as a file object.","f = open(""demofile.txt"", ""r"")
+print(f.read()) ","open(file, mode) ",,file/mode,"  The path and name of the file/A string, define which mode you want to open the file in:
+
+""r"" - Read - Default value. Opens a file for reading, error if the file does not exist
+
+""a"" - Append - Opens a file for appending, creates the file if it does not exist
+
+""w"" - Write - Opens a file for writing, creates the file if it does not exist
+
+""x"" - Create - Creates the specified file, returns an error if the file exist
+
+In addition you can specify if the file should be handled as binary or text mode
+
+""t"" - Text - Default value. Text mode
+
+""b"" - Binary - Binary mode (e.g. images)
+"
+51,pow(),"The pow() function returns the value of x to the power of y (xy).
+
+If a third parameter is present, it returns x to the power of y, modulus z.","x = pow(4, 3, 5)  ","pow(x, y, z) ",4,"x
+
+/y/z","A number, the base/A number, the exponent/Optional. A number, the modulus"
+52,print(),"The print() function prints the specified message to the screen, or other standard output device.
+
+The message can be a string, or any other object, the object will be converted into a string before written to the screen."," print(""Hello World"") ","print(object(s), sep=separator, end=end, file=file, flush=flush)",Hello World,object(s)/sep='separator'/end='end'/file/flush,"  Any object, and as many as you like. Will be converted to string before printed/  Optional. Specify how to separate the objects, if there is more than one. Default is ' '/Optional. Specify what to print at the end. Default is '\n' (line feed)/Optional. An object with a write method. Default is sys.stdout/Optional. A Boolean, specifying if the output is flushed (True) or buffered (False). Default is "
+53,range(),"The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number.","x = range(6)
+for n in x:
+  print(n) ","range(start, stop, step) ","0
+1
+2
+3
+4
+5 ",start/stop/step,Optional. An integer number specifying at which position to start. Default is 0/Required. An integer number specifying at which position to stop (not included)./Optional. An integer number specifying the incrementation. Default is 1
+54,reversed(),The reversed() function returns a reversed iterator object.,"alph = [""a"", ""b"", ""c"", ""d""]
+ralph = reversed(alph)
+for x in ralph:
+  print(x) ",reversed(sequence) ,"d
+c
+b
+a ",sequence,  Required. Any iterable object
+55,round(),"The round() function returns a floating point number that is a rounded version of the specified number, with the specified number of decimals.
+
+The default number of decimals is 0, meaning that the function will return the nearest integer.","x = round(5.76543, 2)
+print(x) ","round(number, digits) ",5.77,number/digits,Required. The number to be rounded/Optional. The number of decimals to use when rounding the number. Default is 0
+56,slice(),"The slice() function returns a slice object.
+
+A slice object is used to specify how to slice a sequence. You can specify where to start the slicing, and where to end. You can also specify the step, which allows you to e.g. slice only every other item.
+","a = (""a"", ""b"", ""c"", ""d"", ""e"", ""f"", ""g"", ""h"")
+x = slice(2)
+print(a[x])","slice(start, end, step) ","('a', 'b') ",start/end/step,Optional. An integer number specifying at which position to start the slicing. Default is 0/An integer number specifying at which position to end the slicing/Optional. An integer number specifying the step of the slicing. Default is 1
+57,sorted(),"The sorted() function returns a sorted list of the specified iterable object.
+
+You can specify ascending or descending order. Strings are sorted alphabetically, and numbers are sorted numerically.","a = (""b"", ""g"", ""a"", ""d"", ""f"", ""c"", ""h"", ""e"")
+x = sorted(a)
+print(x)","sorted(iterable, key=key, reverse=reverse)","['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] ",iterable/key/reverse,"Required. The sequence to sort, list, dictionary, tuple etc./Optional. A Function to execute to decide the order. Default is None/Optional. A Boolean. False will sort ascending, True will sort descending. Default is False"
+58,str(),The str() function converts the specified value into a string.,x = str(3.5),"str(object, encoding=encoding, errors=errors) ",,object/encoding/errors,  Any object. Specifies the object to convert into a string/The encoding of the object. Default is UTF-8/Specifies what to do if the decoding fails
+59,string.casefold(),"The casefold() method returns a string where all the characters are lower case.
+
+This method is similar to the lower() method, but the casefold() method is stronger, more aggressive, meaning that it will convert more characters into lower case, and will find more matches when comparing two strings and both are converted using the casefold() method.
+","txt = ""Hello, And Welcome To My World!""
+
+x = txt.casefold()
+
+print(x) ",string.casefold() ,"hello, and welcome to my world! ",,
+60,string.count(),The count() method returns the number of times a specified value appears in the string.,"txt = ""I love apples, apple are my favorite fruit""
+
+x = txt.count(""apple"")
+
+print(x) ","string.count(value, start, end) ",2,value/start/end,Required. A String. The string to value to search for/Optional. An Integer. The position to start the search. Default is 0/Optional. An Integer. The position to end the search. Default is the end of the string
+61,string.encode(),"The encode() method encodes the string, using the specified encoding. If no encoding is specified, UTF-8 will be used.","txt = ""My name is StÃ¥le""
+
+x = txt.encode()
+
+print(x) ","string.encode(encoding=encoding, errors=errors) ",b'My name is St\xc3\xe5le',encoding/errors,"Optional. A String specifying the encoding to use. Default is UTF-8/Optional. A String specifying the error method. Legal values are:
+'backslashreplace' - uses a backslash instead of the character that could not be encoded
+'ignore' - ignores the characters that cannot be encoded
+'namereplace' - replaces the character with a text explaining the character
+'strict' - Default, raises an error on failure
+'replace' - replaces the character with a questionmark
+'xmlcharrefreplace' - replaces the character with an xml character"
+62,string.endswith(),"The endswith() method returns True if the string ends with the specified value, otherwise False.
+","txt = ""Hello, welcome to my world.""
+
+x = txt.endswith(""."")
+
+print(x) ","string.endswith(value, start, end) ",TRUE,value/start/end,Required. The value to check if the string ends with/Optional. An Integer specifying at which position to start the search/Optional. An Integer specifying at which position to end the search
+63,string.find(),"The find() method finds the first occurrence of the specified value.
+
+The find() method returns -1 if the value is not found.
+
+The find() method is almost the same as the index() method, the only difference is that the index() method raises an exception if the value is not found.","txt = ""Hello, welcome to my world.""
+
+x = txt.find(""welcome"")
+
+print(x) ","string.find(value, start, end)",7,value/start/end,Required. The value to search for/Optional. Where to start the search. Default is 0/Optional. Where to end the search. Default is to the end of the string
+64,string.format(),"The format() method formats the specified value(s) and insert them inside the string's placeholder.
+
+The placeholder is defined using curly brackets: {}. Read more about the placeholders in the Placeholder section below.
+
+The format() method returns the formatted string.
+","txt = ""For only {price:.2f} dollars!""
+print(txt.format(price = 49)) ","string.format(value1, value2...) ",For only 49.00 dollars! ,"value1, value2","Required. One or more values that should be formatted and inserted in the string. The values can be A number specifying the position of the element you want to remove.
+
+The values are either a list of values separated by commas, a key=value list, or a combination of both.
+
+The values can be of any data type."
+65,string.index(),"The index() method finds the first occurrence of the specified value.
+
+The index() method raises an exception if the value is not found.
+
+The index() method is almost the same as the find() method, the only difference is that the find() method returns -1 if the value is not found.","txt = ""Hello, welcome to my world.""
+
+x = txt.index(""welcome"")
+
+print(x) ","string.index(value, start, end) ",7,value/start/end,Required. The value to search for/Optional. Where to start the search. Default is 0/Optional. Where to end the search. Default is to the end of the string
+66,string.isalpha(),"The isalpha() method returns True if all the characters are alphabet letters (a-z).
+
+Example of characters that are not alphabet letters: (space)!#%&? etc.","txt = ""CompanyX""
+
+x = txt.isalpha()
+
+print(x)",string.isalpha() ,TRUE,,
+67,string.isdigit(),"The isdigit() method returns True if all the characters are digits, otherwise False.
+
+Exponents, like Â², are also considered to be a digit.","txt = ""50800""
+
+x = txt.isdigit()
+
+print(x) ",string.isdigit(),TRUE ,,
+68,string.isspace(),"The isspace() method returns True if all the characters in a string are whitespaces, otherwise False.","txt = ""   ""
+
+x = txt.isspace()
+
+print(x) ",string.isspace() ,TRUE ,,
+69,string.join(),"The join() method takes all items in an iterable and joins them into one string.
+
+A string must be specified as the separator.
+","myTuple = (""John"", ""Peter"", ""Vicky"")
+
+x = ""#"".join(myTuple)
+
+print(x) ",string.join(iterable) ,John#Peter#Vicky ,iterable,Required. Any iterable object where all the returned values are strings
+70,string.lower(),"The lower() method returns a string where all characters are lower case.
+
+ Symbols and Numbers are ignored.","txt = ""Hello my FRIENDS""
+
+x = txt.lower()
+
+print(x) ",string.lower() ,hello my friends ,,
+71,string.lstrip(),The lstrip() method removes any leading characters (space is the default leading character to remove),"txt = ""     banana     ""
+
+x = txt.lstrip()
+
+print(""of all fruits"", x, ""is my favorite"") ",string.lstrip(characters) ,of all fruits banana     is my favorite ,characters,  Optional. A set of characters to remove as leading characters
+72,string.replace(),The replace() method replaces a specified phrase with another specified phrase.,"txt = ""I like bananas""
+
+x = txt.replace(""bananas"", ""apples"")
+
+print(x) ","string.replace(oldvalue, newvalue, count) ",I like apples ,oldvalue/newvalue/count,  Required. The string to search for/Required. The string to replace the old value with/  Optional. A number specifying how many occurrences of the old value you want to replace. Default is all occurrences
+73,string.rindex(),"The rindex() method finds the last occurrence of the specified value.
+
+The rindex() method raises an exception if the value is not found.","txt = ""Mi casa, su casa.""
+
+x = txt.rindex(""casa"")
+
+print(x) ","string.rindex(value, start, end) ",12,value/start/end,Required. The value to search for/Optional. Where to start the search. Default is 0/Optional. Where to end the search. Default is to the end of the string
+74,string.rpartition(),"The rpartition() method searches for the last occurrence of a specified string, and splits the string into a tuple containing three elements.
+
+The first element contains the part before the specified string.
+
+The second element contains the specified string.
+
+The third element contains the part after the string.","txt = ""I could eat bananas all day, bananas are my favorite fruit""
+
+x = txt.rpartition(""bananas"")
+
+print(x) ",string.rpartition(value) ,"('I could eat bananas all day, ', 'bananas', ' are my favorite fruit')",value,Required. The string to search for
+75,string.rsplit(),"The rsplit() method splits a string into a list, starting from the right.
+
+If no ""max"" is specified, this method will return the same as the split() method.","txt = ""apple, banana, cherry""
+
+x = txt.rsplit("", "")
+
+print(x) ","string.rsplit(separator, maxsplit) ","['apple', 'banana', 'cherry']",separator/maxsplit,"Optional. Specifies the separator to use when splitting the string. By default any whitespace is a separator/Optional. Specifies how many splits to do. Default value is -1, which is ""all occurrences"""
+76,string.split(),"The split() method splits a string into a list.
+
+You can specify the separator, default separator is any whitespace.","txt = ""welcome to the jungle""
+
+x = txt.split()
+
+print(x) ","string.split(separator, maxsplit) ","['welcome', 'to', 'the', 'jungle'] ",separator,Optional. Specifies the separator to use when splitting the string. By default any whitespace is a separator
+77,string.strip(),The strip() method removes any leading  and trailing characters,"txt = ""     banana     ""
+
+x = txt.strip()
+
+print(""of all fruits"", x, ""is my favorite"") ",string.strip(characters),of all fruits banana is my favorite ,characters,  Optional. A set of characters to remove as leading/trailing characters
+78,string.swapcase(),The swapcase() method returns a string where all the upper case letters are lower case and vice versa.,"txt = ""Hello My Name Is PETER""
+
+x = txt.swapcase()
+
+print(x) ",string.swapcase() ,hELLO mY nAME iS peter ,,
+79,string.title(),"The title() method returns a string where the first character in every word is upper case. Like a header, or a title.
+
+If the word contains a number or a symbol, the first letter after that will be converted to upper case.","txt = ""Welcome to my world""
+
+x = txt.title()
+
+print(x) ",string.title() ,Welcome To My World ,,
+80,string.upper,"The upper() method returns a string where all characters are in upper case.
+
+ Symbols and Numbers are ignored.","txt = ""Hello my friends""
+
+x = txt.upper()
+
+print(x) ",string.upper() ,HELLO MY FRIENDS ,,
+81,string.zfill(),"The zfill() method adds zeros (0) at the beginning of the string, until it reaches the specified length.
+
+If the value of the len parameter is less than the length of the string, no filling is done.
+","txt = ""50""
+
+x = txt.zfill(10)
+
+print(x) ","
+string.zfill(len)
+",50,len,Required. A number specifying the position of the element you want to remove
+82,string.split(),,,,,maxsplit,"Optional. Specifies how many splits to do. Default value is -1, which is ""all occurrences"""
+83,sum(),"The sum() function returns a number, the sum of all items in an iterable.","a = (1, 2, 3, 4, 5)
+x = sum(a)","sum(iterable, start) ",15,iterable/start,Required. The sequence to sum/Optional. A value that is added to the return value
+84,tuple(),The tuple() function creates a tuple object.,"x = tuple(('apple', 'banana', 'cherry')) ",tuple(iterable) iterable,"('banana', 'cherry', 'apple') ",,"Required. A sequence, collection or an iterator object"
+85,type(),The type() function returns the type of the specified object,"a = ('apple', 'banana', 'cherry')
+b = ""Hello World""
+c = 33
+
+x = type(a)
+y = type(b)
+z = type(c) ","type(object, bases, dict) ","<class 'tuple'>
+<class 'str'>
+<class 'int'> ",object/bases/dict,"Required. If only one parameter is specified, the type() function returns the type of this object/Optional. Specifies the base classes/  Optional. Specifies the namespace with the definition for the class"
+86,vars(),"The vars() function returns the __dic__ attribute of an object.
+
+The __dict__ attribute is a dictionary containing the object's changeable attributes.","class Person:
+  name = ""John""
+  age = 36
+  country = ""norway""
+
+x = vars(Person) ",vars(object),"{'__module__': '__main__', 'name': 'John', 'age': 36, 'country': 'Norway', '__dict__': <attribute '__dict__' of 'Person' objects>, '__weakref__': <attribute '__weakref__' of 'Person' objects>, '__doc__': None} ",object,Any object with a __dict__attribute
+87,zip(),"The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed iterator is paired together, and then the second item in each passed iterator are paired together etc.
+
+If the passed iterators have different lengths, the iterator with the least items decides the length of the new iterator.","a = (""John"", ""Charles"", ""Mike"")
+b = (""Jenny"", ""Christy"", ""Monica"")
+
+x = zip(a, b) ","zip(iterator1, iterator2, iterator3 ...) ","(('John', 'Jenny'), ('Charles', 'Christy'), ('Mike', 'Monica')) ","iterator1, iterator2, iterator3 ",Iterator objects that will be joined together

@@ -1,0 +1,1211 @@
+name,desp,example_input,Syntax,Parameters,example_output,param_description,module
+assert(),"The assert() method tests if a given expression is true or not.
+
+If the expression evaluates to 0, or false, an assertion failure is being caused, and the program is terminated.
+
+The assert() method is an alias of the assert.ok() method.","var assert = require('assert');
+assert(50 > 70);"," assert(expression, message);",expression*message,"C:\Users\My Name>node demo_met_assert.js
+AssertionError: false == true ","Required. Specifies an expression to be evaluated*Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned ",assert
+assert.deepEqual(),"The assert.deepEqual() method tests if two objects, and their child objects, are equal, using the == operator.
+
+If the two objects are not equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the objects using the === operator, use the assert.deepStrictEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: 1 } };
+assert.deepEqual(x, y); //OK
+assert.deepEqual(x, z); /*AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } }*/"," assert.deepEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_deepequal.js
+AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } } ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.deepStrictEqual(,"The assert.deepStrictEqual() method tests if two objects, and their child objects, are equal, using the === operator.
+
+If the two objects are not equal, an assertion failure is being caused, and the program is terminated.
+
+The === operator tests if the values and the types are equal.
+
+To compare the objects using the == operator, use the assert.deepEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: '0' } };
+assert.deepStrictEqual(x, y); //OK
+assert.deepStrictEqual(x, z); /*AssertionError: { a: { n: 0 } } deepStrictEqual {a: { n: '0' } }*/"," assert.deepStrictEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_deepstrictequal.js
+AssertionError: { a: { n: 0 } } deepStrictEqual {a: { n: '0' } }","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.equal(),"The assert.equal() method tests if two values are equal, using the == operator.
+
+If the two values are not equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the values using the === operator, use the assert.strictEqual() method.","var assert = require('assert');
+assert.equal(50, 50); //OK
+assert.equal(50, ""50""); //OK
+assert.equal(50, 70); /*AssertionError: 50 == 70 */","assert.equal(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_equal.js
+AssertionError: 50 == 70 ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+ assert.notDeepEqual(),"The assert.notDeepEqual() method tests if two objects, and their child objects, are NOT equal, using the != operator.
+
+If the two objects are equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the objects using the !== operator, use the assert.notDeepStrictEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: 1 } };
+assert.notDeepEqual(x, z); //OK
+assert.notDeepEqual(x, y); /*AssertionError: { a: { n: 0 } } notDeepEqual {a: { n: 0 } }*/","assert.notDeepEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_notdeepequal.js
+AssertionError: { a: { n: 0 } } notDeepEqual {a: { n: 0 } } ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.notDeepStrictEqual(),"The assert.notDeepStrictEqual() method tests if two objects, and their child objects, are NOT equal, using the !== operator.
+
+If the two objects are equal, an assertion failure is being caused, and the program is terminated.
+
+The !== operator tests if both values and types are not equal.
+
+To compare the objects using the != operator, use the assert.notDeepEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: '0' } };
+assert.notDeepStrictEqual(x, z); //OK
+assert.notDeepStrictEqual(x, y); /*AssertionError: { a: { n: 0 } } notDeepStrictEqual {a: { n: 0 } }*/","assert.notDeepStrictEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_notdeepstrictequal.js
+AssertionError: { a: { n: 0 } } notDeepStrictEqual {a: { n: 0 } } ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.notEqual(),"The assert.notEqual() method tests if two values are NOT equal, using the != operator.
+
+If the two values are equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the values using the stricter !== operator, use the assert.notStrictEqual() method.","var assert = require('assert');
+assert.notEqual(50, 70); //OK
+assert.notEqual(50, 50); /*AssertionError: 50 != 50 */","assert.notEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_notequal.js
+AssertionError: 50 != 50 ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.ok(),"The assert.ok() method tests if a given expression is true or not.
+
+If the expression evaluates to 0, or false, an assertion failure is being caused, and the program is terminated.","var assert = require('assert');
+assert.ok(50 > 70);","assert.ok(expression, message);",expression*message,"C:\Users\My Name>node demo_met_assert_ok.js
+AssertionError: false == true ","Required. Specifies an expression to be evaluated*Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+assert.strictEqual(),"The assert.strictEqual() method tests if two values are equal, using the === operator.
+
+If the two values are not equal, an assertion failure is being caused, and the program is terminated.
+
+The === operator tests if the values are equal and if their types are equal.
+
+To compare the values using the == operator, use the assert.equal() method.","var assert = require('assert');
+assert.strictEqual(50, 50); //OK
+assert.strictEqual(50, ""50""); /*AssertionError: 50 === '50' */","assert.strictEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_strictequal.js
+AssertionError: 50 == '50' ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
+Buffer.alloc(),The Buffer.alloc() method creates a new buffer object of the specified size.,"var buf = Buffer.alloc(15);
+console.log(buf);  ","Buffer.alloc(size, fill, encoding);",size*fill*encoding,"C:\Users\My Name>node demo_met_buffer_alloc.js
+<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00> ","  Required. Specifies the size of the buffer*Optional. Specifies a value to fill the buffer with if specified, otherwise the buffer is filled with 0 (zero-filled)*Optional. If the buffer values are strings, this parameter specifies the encoding, default encoding is utf8. Supported values are:
+""ascii""
+""utf8""
+""utf16le""
+""ucs2""
+""base64""
+""latin1""
+""binary""
+""hex""",buffer
+Buffer.allocUnsafe(),"The Buffer.allocUnsafe() method creates a new buffer object of the specified size.
+
+This method differs from the Buffer.alloc() method because it creates a not-pre-filled buffer, and it may contain information from older buffers. That is why it is called unsafe.
+
+To prevent this buffer from containing old data, you can use the Buffer.fill() method to pre-fill the buffer.","var buf = Buffer.allocUnsafe(15);
+console.log(buf); ", Buffer.allocUnsafe(size);,size,"C:\Users\My Name>node demo_met_buffer_allocunsafe.js
+<Buffer 02 00 00 00 a7 01 00 00 10 53 49 90 02 a7 01> ",Required. Specifies the size of the buffer,buffer
+Buffer.byteLength(),"The Buffer.byteLength() method returns the length of a specified string object, in bytes.","var buf = Buffer.alloc(15);
+var len = Buffer.byteLength(buf);
+console.log(len);","Buffer.byteLength(string, encoding);",string*encoding,"C:\Users\My Name>node demo_met_buffer_bytelength.js
+15 ","Required. Specifies the object to calculate the length of. Supported types are:
+String
+Buffer
+TypedArray
+DataView
+ArrayBuffer*Optional. If the object is a string, this parameter specified its encoding. Default encoding is ""utf8""",buffer
+Buffer.compare(),"The compare() method compares two buffer objects and returns a number defining their differences:
+
+0 if they are equal
+1 if buf1 is higher than buf2
+-1 if buf1 is lower than buf2
+
+This method can be used to sort arrays containing buffers.
+","var buf1 = Buffer.from('abc');
+var buf2 = Buffer.from('abc');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);
+
+var buf1 = Buffer.from('a');
+var buf2 = Buffer.from('b');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);
+
+var buf1 = Buffer.from('b');
+var buf2 = Buffer.from('a');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);","Buffer.compare(buf1, buf2);",buf1*buf2,"C:\Users\My Name>node demo_met_buffer_compare.js
+
+0
+-1
+1",Required. A Buffer*Require.Buffer,buffer
+Buffer.concat(),The concat() method joins all buffer objects in an array into one buffer object.,"var buf1 = Buffer.from('a');
+var buf2 = Buffer.from('b');
+var buf3 = Buffer.from('c');
+var arr = [buf1, buf2, buf3];
+
+var buf = Buffer.concat(arr);
+console.log(buf);"," Buffer.concat(arr, length);",arr*length,"C:\Users\My Name>node demo_met_buffer_concat.js
+<Buffer 61>, <Buffer 62>, <Buffer 63> ",Required. The array of buffers to concat*Optional. Specifies the length of the concatenated buffer,buffer
+buffer.copy(),The copy() method copies data from one buffer object into another buffer object.,"var buf1 = Buffer.from('abcdefghijkl');
+var buf2 = Buffer.from('HELLO');
+
+buf2.copy(buf1, 2);
+
+console.log(buf1.toString());","buffer.copy(target, targetStart, sourceStart, sourceEnd);",target*targetStart*sourceStart*sourceEnd,"C:\Users\My Name>node demo_met_buffer_copy.js
+abHELLOhijkl ",  Required. The array of buffers to concat*Optional. A number specifying where to begin copying to. Default 0*  Optional. A number specifying where to begin copying from. Default 0*Optional. A number specifying where to stop copying from. Default end of buffer,buffer
+buffer.entries(),"The entries() method returns an iterator object, containing the index and byte value of each byte in a buffer object.","var buf = Buffer.from('abc');
+
+for (x of buf.entries()) {
+  console.log(x);
+} ",buffer.entries();,,"C:\Users\My Name>node demo_met_buffer_entries.js
+[ 0, 97 ]
+[ 1, 98 ]
+[ 2, 99 ] ",,buffer
+buffer.equals(),"The equals() method compares two buffer objects and returns true if they are equal, otherwise false.","var buf1 = Buffer.from('abc');
+var buf2 = Buffer.from('abc');
+
+console.log(buf1.equals(buf2)); ",buffer.equals(buf);,buf,"C:\Users\My Name>node demo_met_buffer_equals.js
+true ",Required. A buffer to compare with,buffer
+buffer.fill(),"The fill() method fills a buffer with the specified value.
+
+You can fill the whole buffer or parts of the buffer, using the start and end parameters.","var buf = Buffer.alloc(15);
+
+buf.fill('a');
+
+console.log(buf); ","buffer.fill(value, start, end, encoding);",value*start*end*encoding,"C:\Users\My Name>node demo_met_buffer_fill.js
+<Buffer 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61> ","  Required. A buffer to compare with*Optional. Where to start the filling. Default 0*Optional. Where to end the filling. Default at the end of the buffer*Optional. The encoding of the value. Default ""utf8""",buffer
+buffer.fill(),,,,,,  ,
+buffer.fill(),,,,,,,
+buffer.fill(),,,,,,,
+buffer.includes(),"The includes() method checks if a specified value is included in the buffer.
+
+Returns true if the values is included, otherwise false.","var buf = Buffer.from('Hello, and welcome to Rome!');
+
+console.log(buf.includes('welcome')); ","buffer.includes(value, start, encoding);",value*start*encoding,"C:\Users\My Name>node demo_met_buffer_includes.js
+
+true","Required. What to search for. Legal value types:
+String
+Buffer
+Number (Integer)*Optional. Where to begin the search. Default 0*Optional. If the value is a string, this parameter is used to specify its encoding. Default ""utf8""",buffer
+buffer.indexOf(),"The indexOf() method checks if a specified value is present in the buffer and returns the position.
+
+This method returns -1 if the value to search for never occurs.
+
+If the specified value occurs more than once, only the position of the first occurrence will be returned.
+
+See also: the lastIndexOf() method, which returns the last occurrence of the specified value.","var buf = Buffer.from('Hello, and welcome to Rome!');
+
+console.log(buf.indexOf('welcome')); ","buffer.indexOf(value, start, encoding); ","value,start,encoding","C:\Users\My Name>node demo_met_buffer_indexof.js
+11 ","Required. What to search for. Legal value types:
+String
+Buffer
+Number (Integer)*Optional. Where to begin the search. Default 0*Optional. If the value is a string, this parameter is used to specify its encoding. Default ""utf8""",buffer
+Buffer.isBuffer(),"The Buffer.isBuffer() method returns true if the specified object is a Buffer, otherwise false.","var x = Buffer.from('abc');
+
+console.log(Buffer.isBuffer(x)); ",Buffer.isBuffer(obj); ,obj,"C:\Users\My Name>node demo_met_buffer_isbuffer.js
+true ",Required. The object to check if is a Buffer,buffer
+buffer.keys(),"The keys() method returns an iterator object, containing the key of each byte in a buffer object.","var buf = Buffer.from('abc');
+
+for (x of buf.keys()) {
+  console.log(x);
+} ",buffer.keys(); ,,"C:\Users\My Name>node demo_met_buffer_keys.js
+
+0
+1
+2",,buffer
+buffer.length,"The length property returns the size of a buffer, in bytes.","var buf = Buffer.from('abc');
+
+console.log(buf.length); ",buffer.length; ,,"C:\Users\My Name>node demo_met_buffer_length.js
+
+3 ",,buffer
+buffer.slice(),"The slice() method returns a new buffer object, using parts of an existing buffer.
+
+The start and end parameters specifies where to start and end the extraction. ","var x = Buffer.from('abcdef');
+var y = x.slice(2,5);
+
+console.log(y.toString()); ","buffer.slice(start, end); ",start*end,"C:\Users\My Name>node demo_met_buffer_slice.js
+
+cde","Optional. Where to start slicing. Default 0*Optional. Where to end the slice, default at the very end of the buffer",buffer
+buffer.toString(),The toString() method returns the buffer object according to the specified encoding.,"var buf = Buffer.from('abc');
+
+console.log(buf.toString()); ","buffer.toString(encoding, start, end); ",encoding*start*end,"C:\Users\My Name>node demo_met_buffer_tostring.js
+
+abc
+<Buffer 61 62 63>",Optional. The encoding to use in the return value. Default 'utf8'*Optional. Where to start. Default 0*  Optional. Where to end. Default at the very end of the buffer,buffer
+buffer.toJSON(),The toJSON() method returns a JSON object based on the Buffer object.,"var buf = Buffer.from('abc');
+
+console.log(buf.toJSON()); ",buffer.toJSON(); ,,"C:\Users\My Name>node demo_met_buffer_tojson.js
+
+{ type: 'Buffer', data: [ 97, 98, 99 ] }",,buffer
+buffer.values(),"The values() method returns an iterator object, containing the value of each byte in a buffer object.","var buf = Buffer.from('abcdef');
+
+for (x of buf.values()) {
+console.log(x);
+} ",buffer.values(); ,,"C:\Users\My Name>node demo_met_buffer_values.js
+
+97
+98
+99
+100
+101
+102",,buffer
+buffer.toString(),"The write() method writes the specified string into a buffer, at the specified position.","var buf = Buffer.from('abcdef');
+
+buf.write('qq', 2);
+
+console.log(buf.toString()); ","buffer.write(value, start, bytes, encoding); ",value*start*bytes*encoding,"C:\Users\My Name>node demo_met_buffer_write.js
+
+abqqef",Required. The string to insert*Optional. Where to start writing. Default 0*Optional. How many bytes to write. Default length of buffer minus start position*Optional. The encoding of the value. Default 'utf8',buffer
+DNS ,The DNS module provides a way of performing name resolutions.,"var dns = require('dns');
+var w3 = dns.lookup('w3schools.com', function (err, addresses, family) {
+  console.log(addresses);
+}); ",var dns = require('dns');,,"C:\Users\My Name>node demo_dns.js
+192.229.133.221 ",,DNS
+dgram,"The dgram module provides a way of working with Datagram sockets.
+
+It can be used to send messages from one computer/server to another.","var dgram = require('dgram');
+var s = dgram.createSocket('udp4');
+s.send(Buffer.from('abc'), 8080, 'localhost'); ","var dgram = require('dgram');
+dgram.createSocket()",,C:\Users\Your Name>node demo_dgram_send.js ,,dgram
+events,"The Events module provides a way of working with events.
+
+In Node.js, all events are an instance of the EventEmitter object","var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.addListener(),Adds the specified listener,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.defaultMaxListeners,Sets the maximum number of listeners allowed for one event. Default is 10,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.emit(),Call all the listeners registered with the specified name,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.eventNames(),Returns an array containing all registered events,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.getMaxListeners(),Returns the maximum number of listeners allowed for one event,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.listenerCount(),Returns the number of listeners with the specified name,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.listeners(),Returns an array of listeners with the specified name,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.on(),Adds the specified listener,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.once(),"Adds the specified listener once. When the specified listener has been executed, the listener is removed","var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.prependListener(),Adds the specified listener as the first event with the specified name,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.prependOnceListener(),"Adds the specified listener as the first event with the specified name, once. When the specified listener has been executed, the listener is removed","var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.removeAllListeners(),"Removes all listeners with the specified name, or ALL listeners if no name is specified","var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.removeListener(),Removes the specified listener with the specified name,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+events.setMaxListeners(),Sets the maximum number of listeners allowed for one event. Default is 10,"var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+eventEmitter.on('scream', function() {
+console.log('A scream is detected!');
+});
+eventEmitter.emit('scream'); ","var events = require('events');
+var eventEmitter = new events.EventEmitter();",,"C:\Users\My Name>node demo_events.js
+A scream is detected! ",,events
+fs,The File System module provides a way of working with the computer's file system.,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.access(),Checks if a user has access to this file or directory,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.accessSync(),"Same as access(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.appendFile(),Appends data to a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.appendFileSync(),"Same as appendFile(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.chmod(),Changes the mode of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.chmodSync(),"Same as chmod(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.chown(),Changes the owner of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.chownSync(),"Same as chown(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fs.close(),Closes a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+closeSync(),"Same as close(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+constants,Returns an object containing constant values for the file system,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+createReadStream(),Returns a new stream object,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+createWriteStream(),Returns a new writeable stream object,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+exists(),Deprecated. Checks if a file or folder exists,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+existsSync(),"Same as exists(), but synchronous instead of asynchronous. This method is NOT deprecated","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fchmod(),Changes the mode of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fchmodSync(),"Same as fchmod(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fchown(),Changes the owner of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fchownSync(),"Same as fchown(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fdatasync(),Syncronizes a file with the one stored on the computer,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fdatasyncSync(),"Same as fdatasync(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fstat(),Returns the status of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fstatSync(),"Same as fstat(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fsync(),Syncronizes a file with the one stored on the computer,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+fsyncSync(),"Same as fsync(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+ftruncated(),Truncates a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+ftruncatedSync(),"Same as ftruncated(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+futimes(),Change the timestamp of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+futimesSync(),"Same as futimes(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lchmod(),"Changes the mode of a file, for Mac OS X","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lchmodSync(),"Same as lchmod(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lchown(),"Changes the owner of a file, for Mac OS X","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lchownSync(),"Same as lchown(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+link(),Makes an addition name for a file. Both the old and the new name may be used,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+linksync(),"Same as link(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lstat(),Returns the status of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+lstatSync(),"Same as lstat(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+mkdir(),Makes a new directory,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+mkdirSync(),"Same as mkdir(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+mkdtemp(),Makes a new temporary directory,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+mkdtempSync(),"Same as mktemp(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+open(),Opens a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+openSync(),"Same as open(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+read(),Reads the content of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readdir(),Reads the content of a directory,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readdirSync(),"Same as readdir(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readFile(),Reads the content of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readFileSync(),"Same as readFile(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readlink(),Reads the value of a link,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+readlinkSync(),"Same as readlink(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+realpath(),Returns the absolute pathname,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+realpathSync(),"Same as realpath(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+rename(),Renames a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+renameSync(),"Same as rename(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+rmdir(),Removes a directory,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+rmdirSync(),"Same as rmdir(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+stat(),Returns the status of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+statSync(),"Same as stat(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+symlink(),Makes a symbolic name for a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+symlinkSync(),"Same as symlink(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+truncate(),Truncates a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+truncateSync(),"Same as truncate(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+unlink(),Removes a link,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+unlinkSync(),"Same as unlink(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+unwatchFile(),Stops watching for changes on a filename,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+utimes(),Change the timestamp of a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+utimesSync(),"Same as utimes(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+watch(),Watch for changes of a filename or directoryname,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+watchFile(),Watch for changes of a filename,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+write(),Writes buffer to a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+write(),Writes data to a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+writeFile(),Writes data to a file,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+writeFileSync(),"Same as writeFile(), but synchronous instead of asynchronous","var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+writeSync(),Same as write(); writes buffer to a file synchronous instead of asynchronous,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+writeSync(),Same as write(); writes data to a file synchronous instead of asynchronous,"var fs = require('fs');
+
+fs.readFile('demofile.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  console.log(data);
+});",var fs = require('fs');,,"C:\Users\My Name>node demo_fs.js
+Hello! Welcome to demofile.txt ",,fs
+http,The HTTP module provides a way of making Node.js transfer data over HTTP (Hyper Text Transfer Protocol).,"var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+createClient(),Deprecated. Creates a HTTP client,"var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+createServer(),Creates an HTTP server,"var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+get(),"Sets the method to GET, and returns an object containing the user's request","var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+globalAgent,Returns the HTTP Agent,"var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+request(),Returns an object containing the user's request,"var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.write('Hello World!');
+  res.end();
+}).listen(8080);",var http = require('http');,,"http://localhost:8080
+
+Hello World!",,http
+net,The Net module provides a way of creating TCP servers and TCP clients.,,var net = require('net');,,,,net
+connect(),"Creates a new connection to the server, and returns a new Socket",,var net = require('net');,,,,net
+createConnection(),"Creates a new connection to the server, and returns a new Socket",,var net = require('net');,,,,net
+createServer(),Creates a new server,,var net = require('net');,,,,net
+isIP,Checks if the specified value is an IP address,,var net = require('net');,,,,net
+isIPv4,Checks if the specified value is an IPv4 address,,var net = require('net');,,,,net
+isIPv6,Checks if the specified value is an IPv6 address,,var net = require('net');,,,,net
+OS,The OS module provides information about the computer's operating system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x64 ",,Os
+arch(),Returns the operating system CPU architecture,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x65",,Os
+constants,"Returns an object containing the operating system's constants for process signals, error cotes etc.","var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x66",,Os
+cpus(),Returns an array containing information about the computer's CPUs,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x67",,Os
+endianness(),Returns the endianness of the CPU,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x68",,Os
+EOL,Returns the end-of-line marker for the current operating system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x69",,Os
+freemem(),Returns the number of free memory of the system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x70",,Os
+hostname(),Returns the hostname of the operating system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x71",,Os
+loadavg(),"Returns an array containing the load averages, (1, 5, and 15 minutes)","var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x72",,Os
+networkInterfaces(),Returns the network interfaces that has a network address,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x73",,Os
+platform(),Returns information about the operating system's platform,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x74",,Os
+release(),Returns information about the operating system's release,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x75",,Os
+tmpdir(),Returns the operating system's default directory for temporary files,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x76",,Os
+totalmem(),Returns the number of total memory of the system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x77",,Os
+type(),Returns the name of the operating system,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x78",,Os
+uptime(),"Returns the uptime of the operating system, in seconds","var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x79",,Os
+userInfo(),Returns information about the current user,"var os = require('os');
+console.log(""Platform: "" + os.platform());
+console.log(""Architecture: "" + os.arch()); ",var os = require('os');,,"C:\Users\My Name>node demo_os.js
+Platform: win32
+Architecture: x80",,Os
+url,"The URL module provides a way of parsing the URL string.
+","var http = require('http');
+var url = require('url');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  var q = url.parse(req.url, true);
+  res.write(q.href);
+  res.end();
+}).listen(8080); ",var url = require('url');,,"http://localhost:8080
+
+default.htm",,url
+url.format(),Returns a formatted URL string,"var http = require('http');
+var url = require('url');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  var q = url.parse(req.url, true);
+  res.write(q.href);
+  res.end();
+}).listen(8080); ",var url = require('url');,,"http://localhost:8080
+
+default.htm",,url
+url.parse(),Returns a URL object,"var http = require('http');
+var url = require('url');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  var q = url.parse(req.url, true);
+  res.write(q.href);
+  res.end();
+}).listen(8080); ",var url = require('url');,,"http://localhost:8080
+
+default.htm",,url
+url.resolve(),Resolves a URL,"var http = require('http');
+var url = require('url');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  var q = url.parse(req.url, true);
+  res.write(q.href);
+  res.end();
+}).listen(8080); ",var url = require('url');,,"http://localhost:8080
+
+default.htm",,url
+util,The Util module provides access to some utility functions.,"var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+debuglog(),Writes debug messages to the error object,"var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+deprecate(),Marks the specified function as deprecated,"var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+format(),"Formats the specified string, using the specified arguments","var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+inherits(),Inherits methods from one function into another,"var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+inspect(),Inspects the specified object and returns the object as a string,"var util = require('util');
+var txt = 'Congratulate %s on his %dth birthday!';
+var result = util.format(txt, 'Linus', 6);
+
+console.log(result); ",var util = require('util');,,"C:\Users\My Name>node demo_util.js
+Congratulate Linus on his 6th birthday! ",,util
+vm,"The VM module provides a way of executing JavaScript on a virtual machine, almost like eval() in JavaScript.","var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+createContext(),"Prepares a virtual machine, or sandbox, where you can execute scripts","var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+isContext(),Returns true if the specified sandbox has been created by the createContext() method,"var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+runInContext(),"Executes JavaScript code in the specified context, and returns the result","var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+runInDebug(),Executes JavaScript inside the debug context,"var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+runInNewContext(),"Executes JavaScript code in a new context, and returns the result","var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm
+runInThisContext(),"Executes JavaScript code in the global context, and returns the result","var vm = require('vm');
+var myObj = { name: 'John', age: 38 };
+vm.createContext(myObj);
+
+vm.runInContext('age += 1;', myObj);
+
+console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
+{ name: 'John', age: 39 } ",,vm

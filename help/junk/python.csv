@@ -1,0 +1,259 @@
+name,desp,example_input,Syntax,Parameters,example_output,param_description,module,
+assert(),"The assert() method tests if a given expression is true or not.
+
+If the expression evaluates to 0, or false, an assertion failure is being caused, and the program is terminated.
+
+The assert() method is an alias of the assert.ok() method.","var assert = require('assert');
+assert(50 > 70);"," assert(expression, message);",expression,"C:\Users\My Name>node demo_met_assert.js
+AssertionError: false == true ",Required. Specifies an expression to be evaluated,assert,
+assert(),,,,message,,"Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned ",assert,
+assert.deepEqual(),"The assert.deepEqual() method tests if two objects, and their child objects, are equal, using the == operator.
+
+If the two objects are not equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the objects using the === operator, use the assert.deepStrictEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: 1 } };
+assert.deepEqual(x, y); //OK
+assert.deepEqual(x, z); /*AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } }*/"," assert.deepEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_deepequal.js
+AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } } ",Required. Specifies the first value to be compared,assert,
+assert.deepEqual(),,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.deepEqual(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.deepStrictEqual(,"The assert.deepStrictEqual() method tests if two objects, and their child objects, are equal, using the === operator.
+
+If the two objects are not equal, an assertion failure is being caused, and the program is terminated.
+
+The === operator tests if the values and the types are equal.
+
+To compare the objects using the == operator, use the assert.deepEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: '0' } };
+assert.deepStrictEqual(x, y); //OK
+assert.deepStrictEqual(x, z); /*AssertionError: { a: { n: 0 } } deepStrictEqual {a: { n: '0' } }*/"," assert.deepStrictEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_deepstrictequal.js
+AssertionError: { a: { n: 0 } } deepStrictEqual {a: { n: '0' } }",Required. Specifies the first value to be compared,assert,
+assert.deepStrictEqual(,,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.deepStrictEqual(,,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.equal(),"The assert.equal() method tests if two values are equal, using the == operator.
+
+If the two values are not equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the values using the === operator, use the assert.strictEqual() method.","var assert = require('assert');
+assert.equal(50, 50); //OK
+assert.equal(50, ""50""); //OK
+assert.equal(50, 70); /*AssertionError: 50 == 70 */","assert.equal(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_equal.js
+AssertionError: 50 == 70 ",Required. Specifies the first value to be compared,assert,
+assert.equal(),,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.equal(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+ assert.notDeepEqual(),"The assert.notDeepEqual() method tests if two objects, and their child objects, are NOT equal, using the != operator.
+
+If the two objects are equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the objects using the !== operator, use the assert.notDeepStrictEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: 1 } };
+assert.notDeepEqual(x, z); //OK
+assert.notDeepEqual(x, y); /*AssertionError: { a: { n: 0 } } notDeepEqual {a: { n: 0 } }*/","assert.notDeepEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_notdeepequal.js
+AssertionError: { a: { n: 0 } } notDeepEqual {a: { n: 0 } } ",Required. Specifies the first value to be compared,assert,
+ assert.notDeepEqual(),,,,value2,,Required. Specifies the second value to be compared,assert,
+ assert.notDeepEqual(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.notDeepStrictEqual(),"The assert.notDeepStrictEqual() method tests if two objects, and their child objects, are NOT equal, using the !== operator.
+
+If the two objects are equal, an assertion failure is being caused, and the program is terminated.
+
+The !== operator tests if both values and types are not equal.
+
+To compare the objects using the != operator, use the assert.notDeepEqual() method.","var assert = require('assert');
+var x = { a : { n: 0 } };
+var y = { a : { n: 0 } };
+var z = { a : { n: '0' } };
+assert.notDeepStrictEqual(x, z); //OK
+assert.notDeepStrictEqual(x, y); /*AssertionError: { a: { n: 0 } } notDeepStrictEqual {a: { n: 0 } }*/","assert.notDeepStrictEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_notdeepstrictequal.js
+AssertionError: { a: { n: 0 } } notDeepStrictEqual {a: { n: 0 } } ",Required. Specifies the first value to be compared,assert,
+assert.notDeepStrictEqual(),,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.notDeepStrictEqual(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.notEqual(),"The assert.notEqual() method tests if two values are NOT equal, using the != operator.
+
+If the two values are equal, an assertion failure is being caused, and the program is terminated.
+
+To compare the values using the stricter !== operator, use the assert.notStrictEqual() method.","var assert = require('assert');
+assert.notEqual(50, 70); //OK
+assert.notEqual(50, 50); /*AssertionError: 50 != 50 */","assert.notEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_notequal.js
+AssertionError: 50 != 50 ",Required. Specifies the first value to be compared,assert,
+assert.notEqual(),,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.notEqual(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.ok(),"The assert.ok() method tests if a given expression is true or not.
+
+If the expression evaluates to 0, or false, an assertion failure is being caused, and the program is terminated.","var assert = require('assert');
+assert.ok(50 > 70);","assert.ok(expression, message);",expression,"C:\Users\My Name>node demo_met_assert_ok.js
+AssertionError: false == true ",Required. Specifies an expression to be evaluated,assert,
+assert.ok(),,,,message,,"Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+assert.strictEqual(),"The assert.strictEqual() method tests if two values are equal, using the === operator.
+
+If the two values are not equal, an assertion failure is being caused, and the program is terminated.
+
+The === operator tests if the values are equal and if their types are equal.
+
+To compare the values using the == operator, use the assert.equal() method.","var assert = require('assert');
+assert.strictEqual(50, 50); //OK
+assert.strictEqual(50, ""50""); /*AssertionError: 50 === '50' */","assert.strictEqual(value1, value2, message);",value1,"C:\Users\My Name>node demo_met_assert_strictequal.js
+AssertionError: 50 == '50' ",Required. Specifies the first value to be compared,assert,
+assert.strictEqual(),,,,value2,,Required. Specifies the second value to be compared,assert,
+assert.strictEqual(),,,,message,,"  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert,
+Buffer.alloc(),The Buffer.alloc() method creates a new buffer object of the specified size.,"var buf = Buffer.alloc(15);
+console.log(buf);  ","Buffer.alloc(size, fill, encoding);",size,"C:\Users\My Name>node demo_met_buffer_alloc.js
+<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00> ",  Required. Specifies the size of the buffer,,buffer
+Buffer.alloc(),,,,fill,,"Optional. Specifies a value to fill the buffer with if specified, otherwise the buffer is filled with 0 (zero-filled)",,
+Buffer.alloc(),,,,encoding,,"  Optional. If the buffer values are strings, this parameter specifies the encoding, default encoding is utf8. Supported values are:
+""ascii""
+""utf8""
+""utf16le""
+""ucs2""
+""base64""
+""latin1""
+""binary""
+""hex""",,
+,,,,,,,,
+Buffer.allocUnsafe(),"The Buffer.allocUnsafe() method creates a new buffer object of the specified size.
+
+This method differs from the Buffer.alloc() method because it creates a not-pre-filled buffer, and it may contain information from older buffers. That is why it is called unsafe.
+
+To prevent this buffer from containing old data, you can use the Buffer.fill() method to pre-fill the buffer.","var buf = Buffer.allocUnsafe(15);
+console.log(buf); ", Buffer.allocUnsafe(size);,size,"C:\Users\My Name>node demo_met_buffer_allocunsafe.js
+<Buffer 02 00 00 00 a7 01 00 00 10 53 49 90 02 a7 01> ",Required. Specifies the size of the buffer,,
+Buffer.byteLength(),"The Buffer.byteLength() method returns the length of a specified string object, in bytes.","var buf = Buffer.alloc(15);
+var len = Buffer.byteLength(buf);
+console.log(len);","Buffer.byteLength(string, encoding);",string,"C:\Users\My Name>node demo_met_buffer_bytelength.js
+15 ","Required. Specifies the object to calculate the length of. Supported types are:
+String
+Buffer
+TypedArray
+DataView
+ArrayBuffer",,
+Buffer.byteLength(),,,,encoding,,"Optional. If the object is a string, this parameter specified its encoding. Default encoding is ""utf8""",,
+Buffer.compare(),"The compare() method compares two buffer objects and returns a number defining their differences:
+
+0 if they are equal
+1 if buf1 is higher than buf2
+-1 if buf1 is lower than buf2
+
+This method can be used to sort arrays containing buffers.
+","var buf1 = Buffer.from('abc');
+var buf2 = Buffer.from('abc');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);
+
+var buf1 = Buffer.from('a');
+var buf2 = Buffer.from('b');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);
+
+var buf1 = Buffer.from('b');
+var buf2 = Buffer.from('a');
+var x = Buffer.compare(buf1, buf2);
+console.log(x);","Buffer.compare(buf1, buf2);",buf1,"C:\Users\My Name>node demo_met_buffer_compare.js
+
+0
+-1
+1",Required. A Buffer,,
+Buffer.compare(),,,,buf2,,Required. A Buffer,,
+Buffer.concat(),"The concat() method joins all buffer objects in an array into one buffer object.
+","var buf1 = Buffer.from('a');
+var buf2 = Buffer.from('b');
+var buf3 = Buffer.from('c');
+var arr = [buf1, buf2, buf3];
+
+var buf = Buffer.concat(arr);
+console.log(buf);"," Buffer.concat(arr, length);",arr,"C:\Users\My Name>node demo_met_buffer_concat.js
+<Buffer 61>, <Buffer 62>, <Buffer 63> ",Required. The array of buffers to concat,,
+Buffer.concat(),,,,length,,Optional. Specifies the length of the concatenated buffer,,
+buffer.copy(),The copy() method copies data from one buffer object into another buffer object.,"var buf1 = Buffer.from('abcdefghijkl');
+var buf2 = Buffer.from('HELLO');
+
+buf2.copy(buf1, 2);
+
+console.log(buf1.toString());","buffer.copy(target, targetStart, sourceStart, sourceEnd);",target,"C:\Users\My Name>node demo_met_buffer_copy.js
+abHELLOhijkl ",  Required. The array of buffers to concat,,
+buffer.copy(),,,,targetStart,,Optional. A number specifying where to begin copying to. Default 0,,
+buffer.copy(),,,,sourceStart,,  Optional. A number specifying where to begin copying from. Default 0,,
+buffer.copy(),,,,sourceEnd,,Optional. A number specifying where to stop copying from. Default end of buffer,,
+buffer.entries(),"The entries() method returns an iterator object, containing the index and byte value of each byte in a buffer object.","var buf = Buffer.from('abc');
+
+for (x of buf.entries()) {
+  console.log(x);
+} ",buffer.entries();,,"C:\Users\My Name>node demo_met_buffer_entries.js
+[ 0, 97 ]
+[ 1, 98 ]
+[ 2, 99 ] ",,,
+buffer.equals(),"The equals() method compares two buffer objects and returns true if they are equal, otherwise false.","var buf1 = Buffer.from('abc');
+var buf2 = Buffer.from('abc');
+
+console.log(buf1.equals(buf2)); ",buffer.equals(buf);,buf,"C:\Users\My Name>node demo_met_buffer_equals.js
+true ",Required. A buffer to compare with,,
+buffer.fill(),"The fill() method fills a buffer with the specified value.
+
+You can fill the whole buffer or parts of the buffer, using the start and end parameters.","var buf = Buffer.alloc(15);
+
+buf.fill('a');
+
+console.log(buf); ","buffer.fill(value, start, end, encoding);",value,"C:\Users\My Name>node demo_met_buffer_fill.js
+<Buffer 61 61 61 61 61 61 61 61 61 61 61 61 61 61 61> ",  Required. A buffer to compare with,,
+buffer.fill(),,,,start,,  Optional. Where to start the filling. Default 0,,
+buffer.fill(),,,,end,,Optional. Where to end the filling. Default at the end of the buffer,,
+buffer.fill(),,,,encoding,,"Optional. The encoding of the value. Default ""utf8""",,
+buffer.includes(),"The includes() method checks if a specified value is included in the buffer.
+
+Returns true if the values is included, otherwise false.","var buf = Buffer.from('Hello, and welcome to Rome!');
+
+console.log(buf.includes('welcome')); ","buffer.includes(value, start, encoding);",value,"C:\Users\My Name>node demo_met_buffer_includes.js
+
+true","Required. What to search for. Legal value types:
+String
+Buffer
+Number (Integer)",,
+buffer.includes(),,,,start,,Optional. Where to begin the search. Default 0,,
+buffer.includes(),,,,encoding,,"Optional. If the value is a string, this parameter is used to specify its encoding. Default ""utf8""",,
+buffer.indexOf(),"The indexOf() method checks if a specified value is present in the buffer and returns the position.
+
+This method returns -1 if the value to search for never occurs.
+
+If the specified value occurs more than once, only the position of the first occurrence will be returned.
+
+See also: the lastIndexOf() method, which returns the last occurrence of the specified value.","var buf = Buffer.from('Hello, and welcome to Rome!');
+
+console.log(buf.indexOf('welcome')); ","buffer.indexOf(value, start, encoding); ",value,"C:\Users\My Name>node demo_met_buffer_indexof.js
+11 ","Required. What to search for. Legal value types:
+String
+Buffer
+Number (Integer)",,
+buffer.indexOf(),,,,start,,Optional. Where to begin the search. Default 0,,
+buffer.indexOf(),,,,encoding,,"Optional. If the value is a string, this parameter is used to specify its encoding. Default ""utf8""",,
+Buffer.isBuffer(),"The Buffer.isBuffer() method returns true if the specified object is a Buffer, otherwise false.","var x = Buffer.from('abc');
+
+console.log(Buffer.isBuffer(x)); ",Buffer.isBuffer(obj); ,obj,"C:\Users\My Name>node demo_met_buffer_isbuffer.js
+true ",Required. The object to check if is a Buffer,,
+buffer.keys(),"The keys() method returns an iterator object, containing the key of each byte in a buffer object.","var buf = Buffer.from('abc');
+
+for (x of buf.keys()) {
+  console.log(x);
+} ",buffer.keys(); ,,"C:\Users\My Name>node demo_met_buffer_keys.js
+
+0
+1
+2",,,
+buffer.length,"The length property returns the size of a buffer, in bytes.","var buf = Buffer.from('abc');
+
+console.log(buf.length); ",buffer.length; ,,"C:\Users\My Name>node demo_met_buffer_length.js
+
+3 ",,,
+buffer.slice(),"The slice() method returns a new buffer object, using parts of an existing buffer.
+
+The start and end parameters specifies where to start and end the extraction. ","var x = Buffer.from('abcdef');
+var y = x.slice(2,5);
+
+console.log(y.toString()); ","buffer.slice(start, end); ",start,"C:\Users\My Name>node demo_met_buffer_slice.js
+
+cde",  Optional. Where to start slicing. Default 0,,
+buffer.slice(),,,,end,,"Optional. Where to end the slice, default at the very end of the buffer",,
