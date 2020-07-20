@@ -4,7 +4,7 @@ from search import AutocompleteEntry
 from search import NO_RESULTS_MESSAGE
 
 
-
+# main app class
 class tkinterApp(tk.Tk): 
 	
 	
@@ -44,7 +44,7 @@ class tkinterApp(tk.Tk):
 		self.destroy()
 
 
-
+#class for Homepage, this includes all the buttons and widgets in the homepage
 class StartPage(tk.Frame): 
 	def __init__(self, parent, controller): 
 		
@@ -82,7 +82,7 @@ class StartPage(tk.Frame):
 
 
 		
-
+#class for cpp tab, this includes search bar and all the buttons representing respective functions
 class Page1(tk.Frame): 
 	
 	def __init__(self, parent, controller):
@@ -148,6 +148,7 @@ class Page1(tk.Frame):
 				self.canvas.yview_scroll(1, "units")
 
 
+#class for python tab, this includes search bar and all the buttons representing respective functions
 class Page2(tk.Frame): 
 	def __init__(self, parent, controller, text=None, des=None,event=None):
 
@@ -207,7 +208,7 @@ class Page2(tk.Frame):
 
 		
 
-
+#class for NodeJs tab, this includes search bar and all the buttons representing respective functions
 class Page3(tk.Frame): 
 	def __init__(self, parent, controller):
 
@@ -266,7 +267,7 @@ class Page3(tk.Frame):
         )
 			
 
-
+#class for Html tab, this includes search bar and all the buttons representing respective tags
 class Page4(tk.Frame): 
 	def __init__(self, parent, controller): 
 

@@ -8,12 +8,13 @@ global df_nodejs
 global df_cpp
 global df_html
 
+# accessing all function data from Database
 df_python = pd.read_csv("database/python.csv", sep=',', encoding='cp1252')
 df_nodejs = pd.read_csv("database/nodeJS.csv", sep=',', encoding='cp1252')
 df_cpp = pd.read_csv("database/cpp.csv", sep=',')
 df_html = pd.read_csv("database/html.csv", sep=',', encoding='cp1252')
 
-
+# scrollable frame class
 class ScrollableFrame(ttk.Frame):
     def __init__(self, container, *args, **kwargs):
         super().__init__(container, *args, **kwargs)
@@ -47,7 +48,7 @@ class ScrollableFrame(ttk.Frame):
             pass
 
 
-
+#function to display python functions
 def open_py(z):
     
     root = tk.Tk()
@@ -163,6 +164,9 @@ def open_py(z):
     root.resizable(width=False, height=False)
     root.title("python references")
 
+
+
+#function to display Nodejs functions
 def open_node(z):
     root = tk.Tk()
     
@@ -280,6 +284,7 @@ def open_node(z):
     root.title("nodeJS references")
 
 
+#function to display cpp functions
 def open_cpp(z):
     root = tk.Tk()
     
@@ -416,7 +421,7 @@ def open_cpp(z):
     root.title("Cpp references")
 
 
-
+#function to display html tags
 def open_html(z):
     path = "images/" + str(df_html['name'][z]).strip() +".png"
 
@@ -531,7 +536,7 @@ def open_html(z):
         pass
 
 
-
+# keybindings page construction
 def key_bindings():
     
     root = tk.Tk()

@@ -5,7 +5,7 @@ __all__ = ["AutocompleteEntry"]
 NO_RESULTS_MESSAGE = "No results found"
 
 
-
+# To open the search result
 def search_key(key, entries):
 
     if entries[-1] == "CPP":
@@ -38,7 +38,10 @@ def search_key(key, entries):
             open_html(idx)
         except:
             pass
-   
+
+# class for Search results
+# initiating doesnt start the class, build the class after initiating
+#build function is down below
 class AutocompleteEntry(tk.Frame, object):
     
     LISTBOX_HEIGHT = 5
