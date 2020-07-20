@@ -1,11 +1,7 @@
-import tkinter as tk 
-from tkinter import ttk
-import pandas as pd
 from functions import *
 from search import AutocompleteEntry
 from search import NO_RESULTS_MESSAGE
 from search import *
-from PIL import ImageTk, Image
 
 
 class tkinterApp(tk.Tk): 
@@ -307,7 +303,7 @@ class Page4(tk.Frame):
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
 		self.image.pack(anchor="ne", ipadx=3, side=tk.RIGHT)
-		
+
 		buttons = {}
 		functions = {}
 		names = df_html['name'].unique()

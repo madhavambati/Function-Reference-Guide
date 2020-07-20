@@ -3,7 +3,6 @@ from tkinter import ttk
 import pandas as pd
 from PIL import ImageTk, Image
 
-
 global df_python
 global df_nodejs
 global df_cpp

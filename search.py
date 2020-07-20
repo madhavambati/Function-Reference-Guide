@@ -1,10 +1,10 @@
-import tkinter as tk
-from tkinter import ttk
 from functions import *
 
 
 __all__ = ["AutocompleteEntry"]
 NO_RESULTS_MESSAGE = "No results found"
+
+
 
 def search_key(key, entries):
 
