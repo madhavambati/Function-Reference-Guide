@@ -1,7 +1,8 @@
 from functions import *
+from search import *
 from search import AutocompleteEntry
 from search import NO_RESULTS_MESSAGE
-from search import *
+
 
 
 class tkinterApp(tk.Tk): 
