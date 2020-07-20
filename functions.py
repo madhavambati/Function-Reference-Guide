@@ -1,7 +1,6 @@
 import tkinter as tk 
 from tkinter import ttk
 import pandas as pd
-import numpy as np
 from PIL import ImageTk, Image
 
 
@@ -81,6 +80,7 @@ def open_py(z):
     t_des = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_des.pack(anchor="w", fill="x", padx=15)
     t_des.insert(tk.END, desp_text)
+    t_des.configure(state="disabled")
     frame.pack()
 
     l2 = tk.Label(frame.scrollable_frame, text= "Syntax: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
@@ -93,6 +93,7 @@ def open_py(z):
     t_syn = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_syn.pack( anchor="w", padx=15)
     t_syn.insert(tk.END, syn_text)
+    t_syn.configure(state="disabled")
 
     l2 = tk.Label(frame.scrollable_frame, text= "Param Description: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l2.pack(anchor="w", pady=10, padx =10)
@@ -116,6 +117,7 @@ def open_py(z):
         t_param = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
         t_param.pack( anchor="w", padx=15)
         t_param.insert(tk.END, param_text)
+        t_param.configure(state="disabled")
 
     l3 = tk.Label(frame.scrollable_frame, text= "Example: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l3.pack(anchor="w", pady=10, padx =10)
@@ -131,6 +133,7 @@ def open_py(z):
     t_code = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_code.pack( anchor="w", padx=15)
     t_code.insert(tk.END, code)
+    t_code.configure(state="disabled")
 
 
     l4 = tk.Label(frame.scrollable_frame, text= "Output: ", font = "Verdana 10 bold", fg="#17609a", bd=5)
@@ -148,6 +151,8 @@ def open_py(z):
     t_out = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold", bg="black", fg="white")
     t_out.pack( anchor="w", padx=15)
     t_out.insert(tk.END, out)
+    t_out.configure(state="disabled")
+
     padd = ttk.Label(frame.scrollable_frame)
     padd.pack()
 
@@ -193,6 +198,7 @@ def open_node(z):
     t_des = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_des.pack(anchor="w", fill="x", padx=15)
     t_des.insert(tk.END, desp_text)
+    t_des.configure(state="disabled")
     frame.pack()
 
     l2 = tk.Label(frame.scrollable_frame, text= "Syntax: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
@@ -205,6 +211,7 @@ def open_node(z):
     t_syn = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_syn.pack( anchor="w", padx=15)
     t_syn.insert(tk.END, syn_text)
+    t_syn.configure(state="disabled")
 
     l2 = tk.Label(frame.scrollable_frame, text= "Param Description: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l2.pack(anchor="w", pady=10, padx =10)
@@ -228,6 +235,7 @@ def open_node(z):
         t_param = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
         t_param.pack( anchor="w", padx=15)
         t_param.insert(tk.END, param_text)
+        t_param.configure(state="disabled")
 
     l3 = tk.Label(frame.scrollable_frame, text= "Example: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l3.pack(anchor="w", pady=10, padx =10)
@@ -243,6 +251,7 @@ def open_node(z):
     t_code = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_code.pack( anchor="w", padx=15)
     t_code.insert(tk.END, code)
+    t_code.configure(state="disabled")
 
 
     l4 = tk.Label(frame.scrollable_frame, text= "Output: ", font = "Verdana 10 bold", fg="#17609a", bd=5)
@@ -260,6 +269,7 @@ def open_node(z):
     t_out = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold", bg="black", fg="white")
     t_out.pack( anchor="w", padx=15)
     t_out.insert(tk.END, out)
+    t_out.configure(state="disabled")
 
     padd = ttk.Label(frame.scrollable_frame)
     padd.pack()
@@ -301,6 +311,7 @@ def open_cpp(z):
     t_des = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_des.pack(anchor="w", fill="x", padx=15)
     t_des.insert(tk.END, desp_text)
+    t_des.configure(state="disabled")
     frame.pack()
 
     hf = tk.Label(frame.scrollable_frame, text= "Header file: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
@@ -312,6 +323,7 @@ def open_cpp(z):
     h_t = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     h_t.pack( anchor="w", padx=15)
     h_t.insert(tk.END, str(df_cpp['module'][z]))
+    h_t.configure(state="disabled")
     
 
 
@@ -332,6 +344,7 @@ def open_cpp(z):
     t_syn = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_syn.pack( anchor="w", padx=15)
     t_syn.insert(tk.END, syn_text)
+    t_syn.configure(state="disabled")
 
     l2 = tk.Label(frame.scrollable_frame, text= "Param Description: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l2.pack(anchor="w", pady=10, padx =10)
@@ -348,6 +361,7 @@ def open_cpp(z):
     t_param = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_param.pack( anchor="w", padx=15)
     t_param.insert(tk.END, param_text)
+    t_param.configure(state="disabled")
 
     l3 = tk.Label(frame.scrollable_frame, text= "Example: ", font = "Verdana 13 bold", fg="#17609a", bd=5)
     l3.pack(anchor="w", pady=10, padx =10)
@@ -372,6 +386,7 @@ def open_cpp(z):
     t_code = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_code.pack( anchor="w", padx=15)
     t_code.insert(tk.END, code)
+    t_code.configure(state="disabled")
 
 
     l4 = tk.Label(frame.scrollable_frame, text= "Output: ", font = "Verdana 10 bold", fg="#17609a", bd=5)
@@ -389,6 +404,7 @@ def open_cpp(z):
     t_out = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold", bg="black", fg="white")
     t_out.pack( anchor="w", padx=15)
     t_out.insert(tk.END, out)
+    t_out.configure(state="disabled")
 
     padd = ttk.Label(frame.scrollable_frame)
     padd.pack()
@@ -426,6 +442,7 @@ def open_html(z):
     t_tag = tk.Text(frame.scrollable_frame, height=height, bd=1, width=width, font = "Courier 9 bold")
     t_tag.pack(anchor="w", padx=15)
     t_tag.insert(tk.END, tag)
+    t_tag.configure(state="disabled")
 
 
 
@@ -453,6 +470,7 @@ def open_html(z):
     t_des = tk.Text(frame.scrollable_frame, height=height+1, bd=1, width=width, font = "Courier 9 bold")
     t_des.pack(anchor="w", fill="x", padx=15)
     t_des.insert(tk.END, desp_text)
+    t_des.configure(state="disabled")
 
     frame.pack()
 
@@ -480,6 +498,7 @@ def open_html(z):
     t_code = tk.Text(frame.scrollable_frame, height=height+1, bd=1, width=width, font = "Courier 9 bold")
     t_code.pack( anchor="w", padx=15)
     t_code.insert(tk.END, code)
+    t_code.configure(state="disabled")
 
 
     l4 = tk.Label(frame.scrollable_frame, text= "Output: ", font = "Verdana 10 bold", fg="#17609a", bd=5)
@@ -511,6 +530,8 @@ def open_html(z):
         root.title("Html references")
     except:
         pass
+
+
 
 def key_bindings():
     

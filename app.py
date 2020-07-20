@@ -1,7 +1,6 @@
 import tkinter as tk 
 from tkinter import ttk
 import pandas as pd
-import numpy as np
 from functions import *
 from search import AutocompleteEntry
 from search import NO_RESULTS_MESSAGE
@@ -182,9 +181,12 @@ class Page2(tk.Frame):
 		self.entry.pack(anchor="ne", ipadx=5, pady=4)
 		pic = Image.open("images/search.png")
 		width, height = pic.size
+		
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
 		self.image.place(x=583, y=0)
+		#self.image.pack(anchor="ne", ipadx=170, ipady=0)
+
 
 		buttons = {}
 		functions = {}
