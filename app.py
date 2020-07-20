@@ -2,6 +2,7 @@ from functions import *
 from search import *
 from search import AutocompleteEntry
 from search import NO_RESULTS_MESSAGE
+from tkinter import messagebox
 
 
 # main app class
@@ -41,7 +42,12 @@ class tkinterApp(tk.Tk):
 		frame.tkraise()
 
 	def quit(self, event=None):
-		self.destroy()
+
+		MsgBox = tk.messagebox.askquestion ('Exit Application','Are you sure you want to exit the application',icon = 'warning')
+		if MsgBox == 'yes':
+			self.destroy()
+		else:
+			pass
 
 
 #class for Homepage, this includes all the buttons and widgets in the homepage

@@ -7,7 +7,9 @@ global df_python
 global df_nodejs
 global df_cpp
 global df_html
+global root
 
+root = None
 # accessing all function data from Database
 df_python = pd.read_csv("database/python.csv", sep=',', encoding='cp1252')
 df_nodejs = pd.read_csv("database/nodeJS.csv", sep=',', encoding='cp1252')
@@ -50,8 +52,17 @@ class ScrollableFrame(ttk.Frame):
 
 #function to display python functions
 def open_py(z):
-    
-    root = tk.Tk()
+
+    global root
+    if root is None:
+        root = tk.Tk()
+    else:
+        try:
+            root.destroy()
+        except:
+            pass
+
+        root = tk.Tk()
     
     frame = ScrollableFrame(root)
     buttons = {}
@@ -168,7 +179,16 @@ def open_py(z):
 
 #function to display Nodejs functions
 def open_node(z):
-    root = tk.Tk()
+    global root
+    if root is None:
+        root = tk.Tk()
+    else:
+        try:
+            root.destroy()
+        except:
+            pass
+        root = tk.Tk()
+    
     
     frame = ScrollableFrame(root)
     buttons = {}
@@ -286,7 +306,16 @@ def open_node(z):
 
 #function to display cpp functions
 def open_cpp(z):
-    root = tk.Tk()
+    global root
+    if root is None:
+        root = tk.Tk()
+    else:
+        try:
+            root.destroy()
+        except:
+            pass
+        root = tk.Tk()
+    
     
     frame = ScrollableFrame(root)
     label = tk.Label(root, text = df_cpp['name'][z],  font=("Calibri", 23, "bold"), fg="#17609a", bd=5).pack(pady=10)
@@ -424,9 +453,15 @@ def open_cpp(z):
 #function to display html tags
 def open_html(z):
     path = "images/" + str(df_html['name'][z]).strip() +".png"
-
-    
-    root = tk.Toplevel()
+    global root
+    if root is None:
+        root = tk.Toplevel()
+    else:
+        try:
+            root.destroy()
+        except:
+            pass
+        root = tk.Toplevel()
     
     frame = ScrollableFrame(root)
     
