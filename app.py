@@ -8,7 +8,6 @@ from search import *
 from PIL import ImageTk, Image
 
 
-
 class tkinterApp(tk.Tk): 
 	
 	
@@ -116,13 +115,13 @@ class Page1(tk.Frame):
 
 		
 		self.build(entries=cpp_names, case_sensitive=False, no_results_message=NO_RESULTS_MESSAGE)
-		self.entry.pack(anchor="ne", ipadx=5, pady=4)
+		self.entry.pack(anchor="ne", ipadx=5, side=tk.RIGHT, expand = False, pady=3)
 
 		pic = Image.open("images/search.png")
 		width, height = pic.size
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
-		self.image.place(x=583, y=0)
+		self.image.pack(anchor="ne", ipadx=3, side=tk.RIGHT)
 		
 
 		buttons = {}
@@ -177,17 +176,18 @@ class Page2(tk.Frame):
 		python_names = df_python['name'].tolist()
 		python_names.append('PYTHON')
 
-		selection = self.build(entries = python_names, case_sensitive=False, no_results_message=NO_RESULTS_MESSAGE)
-		self.entry.pack(anchor="ne", ipadx=5, pady=4)
 		pic = Image.open("images/search.png")
 		width, height = pic.size
 		
+		
+		selection = self.build(entries = python_names, case_sensitive=False, no_results_message=NO_RESULTS_MESSAGE)
+		self.entry.pack(anchor="ne", ipadx=5, side=tk.RIGHT, expand = False, pady=3)
+
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
-		self.image.place(x=583, y=0)
-		#self.image.pack(anchor="ne", ipadx=170, ipady=0)
-
-
+		self.image.pack(anchor="ne", ipadx=3, side=tk.RIGHT)
+		
+		
 		buttons = {}
 		functions = {}
 		names = df_python['name'].unique()
@@ -241,13 +241,14 @@ class Page3(tk.Frame):
 
 		self.entry = AutocompleteEntry(self.canvas)
 		selection = self.build(entries=nodejs_names,case_sensitive=False, no_results_message=NO_RESULTS_MESSAGE)
-		self.entry.pack(anchor="ne", ipadx=5, pady=4)
+		self.entry.pack(anchor="ne", ipadx=5, side=tk.RIGHT, expand = False, pady=3)
 		
 		pic = Image.open("images/search.png")
 		width, height = pic.size
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
-		self.image.place(x=583, y=0)
+		self.image.pack(anchor="ne", ipadx=3, side=tk.RIGHT)
+
 		buttons = {}
 		functions = {}
 		names = df_nodejs['name'].unique()
@@ -298,14 +299,15 @@ class Page4(tk.Frame):
 		selection = self.build(entries=html_names, 
 
 			case_sensitive=False, no_results_message=NO_RESULTS_MESSAGE)
-		self.entry.pack(anchor="ne", ipadx=5, pady=4)
+		self.entry.pack(anchor="ne", ipadx=5, side=tk.RIGHT, expand = False, pady=3)
 		
 
 		pic = Image.open("images/search.png")
 		width, height = pic.size
 		self.img = ImageTk.PhotoImage(pic)
 		self.image = tk.Label(self.canvas, image=self.img)
-		self.image.place(x=583, y=0)
+		self.image.pack(anchor="ne", ipadx=3, side=tk.RIGHT)
+		
 		buttons = {}
 		functions = {}
 		names = df_html['name'].unique()
