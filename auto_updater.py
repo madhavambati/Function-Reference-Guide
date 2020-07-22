@@ -3,6 +3,10 @@ from threading import Timer
 from shutil import copyfile
 import os
 import pandas as pd
+import argparse
+
+# This script is for updaing main Db, runs everyday at 12:00am  
+# This checks main db files with updated db files, if there are any updates, updated files are replaced with main db files
 
 def auto_updater():
 	src = "updated/"
@@ -65,11 +69,14 @@ def auto_updater():
 
 	file.close()
 	x=datetime.today()
-	y = x.replace(day=x.day, hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
+	y = x.replace(day=x.day, hour=1, minute=0, second=0, microsecond=0) + timedelta(days=1)
 	delta_t=y-x
-	print("next update in "+ str(delta_t)+"\n")
 	secs=delta_t.total_seconds()
 	t = Timer(secs, auto_updater)
+
+	display = str(delta_t).split(".")[0] + " hours"
+	print("*** Database Updated ***")
+	print("next update in "+ display +"\n")
 	t.start()
 
 

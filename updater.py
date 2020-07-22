@@ -1,6 +1,29 @@
 import argparse
 import pandas as pd
 
+# Created a CLI for updating databases using argparser 
+# user has to specify different details about the function he/she desires to add in the DB
+# The CLI form is created as metioned below
+# There are 4 subparsers namely python, cpp, node, html
+# Each subparser has arguments for the user to add a function
+
+# python                  cpp 					node 				   html
+#   --name 					--name 				  --name 				 --name 					
+#   --desp 					--desp 				  --desp 				 --desp
+#   --syntax 				--syntax 			  --syntax               --tag
+#   --parameters 			--parameters	      --parameters           --example
+#   --param_desp 			--example 			  --param_desp
+#   --example 				--example_output      --example
+#   --example_output 		--module    		  --example_output
+#  												  --module					
+
+# --name argument is must to fill for the user and rest of the arguments are optional but recommended to be filled.
+# Example: To add a new function in c++ db
+# Command in CMD: python updater.py cpp --name "name of fun" --desp "some desp" --syntax "syntax of the fun"
+#                 --parameters "parameters that the fun takes" --example "some example"
+#                 --example_output "output for the example"  --module "module in which the function belongs"  
+# updated Db is stored in "/updated" folder in the root of the project.
+
 parser = argparse.ArgumentParser()
 subparser = parser.add_subparsers(dest='command')
 
@@ -55,7 +78,9 @@ if args.command == "python":
 
 		df_python = df_python.append(df_update_python, ignore_index=True)
 		df_python.to_csv("updated/python.csv", index=False)
-		print("*** Successfully added to the Database ***")
+		print("*** Successfully added to the Database ***\n")
+		print("Updates will be reflected after 12am today automatically")
+		print("To see the updates immediately please run \"auto_updater.py\" file")
 	else:
 		print("Error: " + args.name + " already exists in Database")
 
@@ -69,7 +94,9 @@ if args.command == "node":
 
 		df_nodejs = df_nodejs.append(df_update_node, ignore_index=True)
 		df_nodejs.to_csv("updated/nodeJS.csv", index=False)
-		print("*** Successfully added to the Database ***")
+		print("*** Successfully added to the Database ***\n")
+		print("Updates will be reflected after 12am today automatically")
+		print("To see the updates immediately please run \"auto_updater.py\" file")
 	else:
 		print("Error: " + args.name + " already exists in Database")
 
@@ -83,7 +110,9 @@ if args.command == "cpp":
 
 		df_cpp = df_cpp.append(df_update_cpp, ignore_index=True)
 		df_cpp.to_csv("updated/cpp.csv", index=False)
-		print("*** Successfully added to the Database ***")
+		print("*** Successfully added to the Database ***\n")
+		print("Updates will be reflected after 12am today automatically")
+		print("To see the updates immediately please run \"auto_updater.py\" file")
 	else:
 		print("Error: " + args.name + " already exists in Database")
 
@@ -101,7 +130,9 @@ if args.command == "html":
 
 		df_html = df_html.append(df_update_html, ignore_index=True)
 		df_html.to_csv("updated/html.csv", index=False)
-		print("*** Successfully added to the Database ***")
+		print("*** Successfully added to the Database ***\n")
+		print("Updates will be reflected after 12am today automatically")
+		print("To see the updates immediately please run \"auto_updater.py\" file")
 	else:
 		print("Error: " + args.name + " already exists in Database")
 

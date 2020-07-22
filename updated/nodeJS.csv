@@ -15,7 +15,7 @@ var x = { a : { n: 0 } };
 var y = { a : { n: 0 } };
 var z = { a : { n: 1 } };
 assert.deepEqual(x, y); //OK
-assert.deepEqual(x, z); /*AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } }*/","Â assert.deepEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_deepequal.js
+assert.deepEqual(x, z); /*AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } }*/","Ãƒâ€šÃ‚Â assert.deepEqual(value1, value2, message);",value1*value2*message,"C:\Users\My Name>node demo_met_assert_deepequal.js
 AssertionError: { a: { n: 0 } } deepEqual {a: { n: 1 } } ","Required. Specifies the first value to be compared*Required. Specifies the second value to be compared*  Optional. Specifies the error message to be assigned to the AssertionError. If omitted, a default message is assigned",assert
 assert.deepStrictEqual(,"The assert.deepStrictEqual() method tests if two objects, and their child objects, are equal, using the === operator.
 
@@ -102,7 +102,7 @@ Buffer.allocUnsafe(),"The Buffer.allocUnsafe() method creates a new buffer objec
 This method differs from the Buffer.alloc() method because it creates a not-pre-filled buffer, and it may contain information from older buffers. That is why it is called unsafe.
 
 To prevent this buffer from containing old data, you can use the Buffer.fill() method to pre-fill the buffer.","var buf = Buffer.allocUnsafe(15);
-console.log(buf); ",Â Buffer.allocUnsafe(size);,size,"C:\Users\My Name>node demo_met_buffer_allocunsafe.js
+console.log(buf); ",Ãƒâ€šÃ‚Â Buffer.allocUnsafe(size);,size,"C:\Users\My Name>node demo_met_buffer_allocunsafe.js
 <Buffer 02 00 00 00 a7 01 00 00 10 53 49 90 02 a7 01> ",Required. Specifies the size of the buffer,buffer
 Buffer.byteLength(),"The Buffer.byteLength() method returns the length of a specified string object, in bytes.","var buf = Buffer.alloc(15);
 var len = Buffer.byteLength(buf);
@@ -1207,3 +1207,5 @@ vm.runInContext('age += 1;', myObj);
 console.log(myObj); ",var vm = require('vm');,,"C:\Users\My Name>node demo_vm.js
 { name: 'John', age: 39 } ",,vm
 hello.py,,,,,,,
+hello.hello,,,,,,,
+hello.helo,,,,,,,
