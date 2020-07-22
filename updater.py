@@ -3,7 +3,7 @@ import pandas as pd
 
 # Created a CLI for updating databases using argparser 
 # user has to specify different details about the function he/she desires to add in the DB
-# The CLI form is created as metioned below
+# The CLI form is created as mentioned below
 # There are 4 subparsers namely python, cpp, node, html
 # Each subparser has arguments for the user to add a function
 

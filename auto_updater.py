@@ -3,7 +3,6 @@ from threading import Timer
 from shutil import copyfile
 import os
 import pandas as pd
-import argparse
 
 # This script is for updaing main Db, runs everyday at 12:00am  
 # This checks main db files with updated db files, if there are any updates, updated files are replaced with main db files
@@ -25,9 +24,7 @@ def auto_updater():
 			if df.equals(df_python):
 				file.write(str(datetime.now()) + " No change detected in "+ path + "\n")
 				file.write("\n")
-				
 			else:
-
 				copyfile(src_path, dst_path)
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 				file.write("\n")
@@ -38,9 +35,7 @@ def auto_updater():
 			df_nodejs = pd.read_csv(src_path)
 			if df.equals(df_nodejs):
 				file.write(str(datetime.now()) + " No change detected in "+ path + "\n")
-				
 			else:
-
 				copyfile(src_path, dst_path)
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 
@@ -49,9 +44,7 @@ def auto_updater():
 			df_cpp = pd.read_csv(src_path)
 			if df.equals(df_cpp):
 				file.write(str(datetime.now()) + " No change detected in "+ path + "\n")
-				
 			else:
-
 				copyfile(src_path, dst_path)
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 
@@ -60,9 +53,7 @@ def auto_updater():
 			df_html = pd.read_csv(src_path)
 			if df.equals(df_html):
 				file.write(str(datetime.now()) + " No change detected in "+ path + "\n")
-				
 			else:
-
 				copyfile(src_path, dst_path)
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 
@@ -72,12 +63,9 @@ def auto_updater():
 	delta_t=y-x
 	secs=delta_t.total_seconds()
 	t = Timer(secs, auto_updater)
-
 	display = str(delta_t).split(".")[0] + " hours"
 	print("*** Database Updated ***")
 	print("next update in "+ display +"\n")
 	t.start()
-
-
 
 auto_updater()
