@@ -4,8 +4,7 @@ from shutil import copyfile
 import os
 import pandas as pd
 
-def updater():
-	
+def auto_updater():
 	src = "updated/"
 	dst = "new_database/"
 	logs = ""
@@ -31,7 +30,7 @@ def updater():
 				file.write("\n")
 
 		if path == "nodeJS.csv":
-			print(dst_path)
+			
 			df = pd.read_csv("new_database/nodeJS.csv")
 			df_nodejs = pd.read_csv(src_path)
 			if df.equals(df_nodejs):
@@ -65,17 +64,14 @@ def updater():
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 
 	file.close()
-				
-
-def auto_update():
 	x=datetime.today()
-	#y = x.replace(day=x.day, hour=1, minute=0, second=0, microsecond=0) + timedelta(days=1)
-
-	y=x.replace(day=x.day, hour=1, minute=0, second=0, microsecond=0)
+	y = x.replace(day=x.day, hour=0, minute=0, second=0, microsecond=0) + timedelta(days=1)
 	delta_t=y-x
-	print(delta_t)
+	print("next update in "+ str(delta_t)+"\n")
 	secs=delta_t.total_seconds()
-	t = Timer(secs, updater)
+	t = Timer(secs, auto_updater)
 	t.start()
 
-auto_update()
+
+
+auto_updater()
