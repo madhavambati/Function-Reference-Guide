@@ -58,14 +58,23 @@ def auto_updater():
 				file.write(str(datetime.now()) + " Updates in "+ path + "\n")
 
 	file.close()
-	x=datetime.today()
-	y = x.replace(day=x.day, hour=1, minute=0, second=0, microsecond=0) + timedelta(days=1)
-	delta_t=y-x
-	secs=delta_t.total_seconds()
+	x = datetime.today()
+	y = x.replace(day=x.day, hour=0, minute=0, second=1, microsecond=0)
+
+	delta_t = y-x
+
+	secs = delta_t.total_seconds()
+
+	if secs < 0:
+		secs += timedelta(days=1).total_seconds()
+
+	display = str(timedelta(seconds = secs)).split(".")[0]
+	
+
 	t = Timer(secs, auto_updater)
-	display = str(delta_t).split(".")[0] + " hours"
+	print(t)
 	print("*** Database Updated ***")
-	print("next update in "+ display +"\n")
+	print("next update in "+ (display) +"\n")
 	t.start()
 
 auto_updater()

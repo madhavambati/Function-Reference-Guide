@@ -646,5 +646,3 @@ ul," <ul>
 Use the <ul> tag together with the <li> tag to create unordered lists.",<ul>
 var,"<p>The area of a triangle is: 1/2 x <var>b</var> x <var>h</var>, where <var>b</var> is the base, and <var>h</var> is the vertical height.</p>",The <var> tag is used to defines a variable in programming or in a mathematical expression. The content inside is typically displayed in italic.,<var>
 wbr," <p>To learn AJAX, you must be familiar with the XML<wbr>Http<wbr>Request Object.</p> ",The <wbr> (Word Break Opportunity) tag specifies where in a text it would be ok to add a line-break.,<wbr>
-hello.py,,,<hello.py>
-hello,,,<hello>

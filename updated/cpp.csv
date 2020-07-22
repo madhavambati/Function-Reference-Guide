@@ -2984,26 +2984,6 @@ desc: The transformation which is obtained from a call to wctrans().","Before tr
 Ŝŵitĉhiňģ Ćăse
 After transformation
 ŝŴITĈHIŇĢ ćĂSE",Cwctype
-iswctype(),The iswctype() function in C++ checks if a given wide character has a certain property.,"#include <cwctype>
-#include <iostream>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-	wchar_t wc = L'\u0178';
-
-	if (iswctype(wc, wctype(""digit"")))
-		wcout << wc << L"" is a digit"";
-	else if (iswctype(wc, wctype(""alpha"")))
-		wcout << wc << L"" is an alphabet"";
-	else
-		wcout << wc << L"" is neither an alphabet nor a digit"";
-	
-	return 0;
-}","int iswctype(wint_t wc, wctype_t desc);","wc: The wide character to check.
-desc: The property to test for which is obtained from a call to wctype().",Ÿ is an alphabet,Cwctype
 towupper(),The towupper() function in C++ converts a given wide character to uppercase.,"#include <cwctype>
 #include <cwchar>
 #include <iostream>
@@ -3040,43 +3020,6 @@ int main()
 
 	return 0;
 }",wint_t towlower( wint_t ch );,ch: The wide character to convert,"The lowercase version of ""Ĵōhn Deńvėr"" is ĵōhn deńvėr",Cwctype
-iswxdigit(),The iswxdigit() function in C++ checks if the given wide character corresponds to a hexadecimal number or not.,"#include <cwctype>
-#include <iostream>
-#include <cwchar>
-#include <clocale>
-using namespace std;
-
-void ishexadecimal(wchar_t *str)
-{
-	bool flag = false;
-	for (int i=0; i<wcslen(str); i++)
-	{
-		if (!iswxdigit(str[i]))
-		{
-			flag = true;
-			break;
-		}
-	}
-
-	if (flag)
-		wcout << str << L"" is not a valid hexadecimal number"" << endl;
-	else
-		wcout << str << L"" is a valid hexadecimal number"" << endl;
-}
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-
-	wchar_t str[] = L""ă3ë1f"";
-	ishexadecimal(str);
-
-	wchar_t str1[] = L""12abf"";
-	ishexadecimal(str1);
-
-	return 0;
-}",int iswxdigit(wint_t ch);,ch: The wide character to check.,"ă3ë1f is not a valid hexadecimal number
-12abf is a valid hexadecimal number",Cwctype
 iswupper(),The iswupper() function in C++ checks if the given wide character is a uppercase character or not.,"#include <cwctype>
 #include <iostream>
 #include <clocale>
@@ -3143,27 +3086,6 @@ int main()
 	return 0;
 }",int iswpunct(wint_t ch);,ch: The wide character to check.,"स is not a punctuation character
 ~ is a punctuation character",Cwctype
-iswprint(),The iswprint() function in C++ checks if the given wide character can be printed or not.,"#include <cwctype>
-#include <cwchar>
-#include <iostream>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-
-	wchar_t str[] = L""Ĥĕllö\tĂll\nĦow are ŷou"";
-	for (int i=0; i<wcslen(str); i++)
-	{
-		/* replace all non printable character by hyphen */
-		if (!iswprint(str[i]))
-			str[i] = '-';
-	}
-	
-	wcout << str;
-	return 0;
-}",int iswprint(wint_t ch);,ch: The wide character to check.,Ĥĕllö Ăll Ħow are ŷou,Cwctype
 iswlower(),The iswlower() function in C++ checks if the given wide character is a lowercase character or not.,"#include <cwctype>
 #include <iostream>
 #include <clocale>
@@ -6099,29 +6021,6 @@ int main()
 }","int wmemcmp( const wchar_t* lhs, const wchar_t* rhs, size_t count );","lhs and rhs: Pointer to the wide character array to compare.
 count: Maximum numbers of wide characters to compare.","First 4 characters of ΆΦΪάψωϮ and ΆΦΪάπχϻ are same
 ΆΦΪάπχϻ precedes ΆΦΪάψωϮ",Cwchar
-wmemchr(),The wmemchr() function in C++ searches for the first occurrence of a wide character in a specified number of wide characters.,"#include <cwchar>
-#include <clocale>
-#include <iostream>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.utf8"");
-
-	wchar_t ptr[] = L""\u0102\u0106\u0126\u01f6\u021c\u0246\u0376\u024a"";
-	wchar_t ch = L'Ħ';
-	int count = 5;
-	
-	if (wmemchr(ptr,ch, count))
-		wcout << ch << L"" is present in first "" << count << L"" characters of \"""" << ptr << ""\"""";
-	else
-		wcout << ch << L"" is not present in first "" << count << L"" characters of \"""" << ptr << ""\"""";
-	
-	return 0;
-}","const wchar_t* wmemchr( const wchar_t* ptr, wchar_t ch, size_t count );
-wchar_t* wmemchr( wchar_t* ptr, wchar_t ch, size_t count );","ptr: Pointer to the wide character array to be searched for.
-ch: Wide character to search for.
-count: Number of wide characters to search.","Ħ is present in first 5 characters of ""ĂĆĦǶȜɆͶɊ""",Cwchar
 wcsxfrm(),The wcsxfrm() function in C++ transforms a given null terminated wide string into an implementation defined form.,"#include <cwchar>
 #include <clocale>
 #include <iostream>
@@ -6148,49 +6047,6 @@ src: pointer to the null terminated wide string to be transformed.
 count: maximum number of wide characters to convert.","wcscoll returned -1
 Before transformation, wcscmp returned 1
 After transformation, wcscmp returned -1",Cwchar
-wcsstr(),The wcsstr() function in C++ finds the first occurrence of a wide substring in a wide string.,"#include <cwchar>
-#include <clocale>
-#include <iostream>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.utf8"");
-	
-	wchar_t src[] = L""ĸņoŵ"";
-	wchar_t dest[] = L""You must ĸņoŵ these facts"";
-	wchar_t *p = wcsstr(dest, src);
-	
-	if (p)
-		wcout << L""\"""" << src << L""\"" is present in \"""" << dest << L""\"" at position "" << (p-dest);
-	else
-		wcout << L""\"""" << src << L""\"" is not present in \"""" << dest << L""\"""";
-	
-	return 0;
-}","const wchar_t* wcsstr( const wchar_t* dest, const wchar_t* src );
-wchar_t* wcsstr( wchar_t* dest, const wchar_t* src )","dest: Pointer to the null terminated wide string to be searched for.
-src: Pointer to the null terminated wide string to search for.","""ĸņoŵ"" is present in ""You must ĸņoŵ these facts"" at position 9",Cwchar
-wcsspn(),The wcsspn() function returns the length of maximum initial segment of the wide string that consists of characters present in another wide string.,"#include <cwchar>
-#include <clocale>
-#include <iostream>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.utf8"");
-	
-	wchar_t src[] = L""0123456789"";
-	wchar_t dest[] = L""\u0036\u0030\u0038\u0031\u004d\u00c6\u0137\u0027\u0426"";
-	int length = wcsspn(dest, src);
-	
-	if (length>0)
-		wcout << dest << L"" contains "" << length << L"" initial numbers"";
-	else
-		wcout << dest << L"" doesn't start with numbers"";
-	
-	return 0;
-}","size_t wcsspn( const wchar_t* dest, const wchar_t* src );","dest: Pointer to a null terminated wide string to be searched.
-src: Pointer to a null terminated wide string containing the characters to search for.",6081MÆķ'Ц contains 4 initial numbers,Cwchar
 wcsrchr(),The wcsrchr() function in C++ searches for the last occurrence of a wide character in a wide string.,"#include <cwchar>
 #include <clocale>
 #include <iostream>
@@ -6380,60 +6236,6 @@ int main()
 	return 0;
 }","wchar_t *wcscpy( wchar_t *dest, const wchar_t *src );","dest: Pointer to a wide character array where the contents are copied to.
 src: Pointer to a wide character array where the contents are copied from.","After copying, dest = Ăpple",Cwchar
-wcscmp(),The wcscmp() function in C++ compares two null terminating wide string. The comparison is done lexicographically.,"#include <cwchar>
-#include <clocale>
-#include <iostream>
-using namespace std;
-
-void compare(wchar_t *lhs, wchar_t *rhs)
-{
-	int result;
-	result = wcscmp(lhs, rhs);
-
-	if(result > 0)
-		wcout << rhs << "" precedes "" << lhs << endl;
-	else if (result < 0)
-		wcout << lhs << "" precedes "" << rhs << endl;
-	else
-		wcout << lhs << "" and "" << rhs << "" are same"" << endl;
-}
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.utf8"");
-	
-	wchar_t str1[] = L""\u0102\u0070ple"";
-	wchar_t str2[] = L""\u00c4\u01f7ple"";
-	wchar_t str3[] = L""\u00c4\u01a4ple"";
-	
-	compare(str1,str2);
-	compare(str2,str3);
-	
-	return 0;
-}","int wcscmp( const wchar_t* lhs, const wchar_t* rhs );","lhs: Pointer to the null terminated wide string to compare.
-rhs: Pointer to the null terminated wide string to compare.","ÄǷple precedes Ăpple
-ÄƤple precedes ÄǷple",Cwchar
-wcschr(),The wcschr() function in C++ searches for the first occurrence of a wide character in a wide string.,"#include <cwchar>
-#include <clocale>
-#include <iostream>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.utf8"");
-	
-	wchar_t str[] = L""\u222b\u222e\u2231\u2211\u220f"";
-	wchar_t ch = L'∫';// Integral sign
-	
-	if (wcschr(str, ch))
-		wcout << ch << L"" is present \"""" << str << L""\"""";
-	else
-		wcout << ch << L"" is not present \"""" << str << L""\"""";
-	
-	return 0;
-}","const wchar_t* wcschr( const wchar_t* str, wchar_t ch );
-wchar_t* wcschr( wchar_t* str, wchar_t ch );","str: Pointer to the null terminated wide string to be searched for.
-ch: Wide character to search for.","∫ is present ""∫∮∱∑∏""",Cwchar
 wcscat(),The wcscat() function in C++ appends a copy of a wide string to the end of another wide string.,"#include <cwchar>
 #include <clocale>
 #include <iostream>
@@ -7337,91 +7139,6 @@ Writes an implementation defined character sequence defining a pointer.
 %[flags][width][.precision][length]specifier
 
 vlist: A list of arguments containing the data to write.",Arabic Letters: ڄ ڱ ڪ ڣ ڄ,Cwchar
-vfwscanf(),The vfwscanf() function in C++ is used to read wide character string from a file stream.,%[*][width][length]specifier,"int vfwscanf( FILE* stream, const wchar_t* format, va_list vlist );","stream: Input file stream to read the data from.
-format: Pointer to a null-terminated wide character string that specifies how to read the input. It consists of format specifiers starting with %.
-		The format string has the following parts:
-		
-Non whitespace characters except % each of which consumes one identical character from the input stream. It can cause the function to fail if the next character on the stream does not compare equal.
-Whitespace character: All the consecutive whitespace characters are treated as single whitespace character. Further, '\n', '\t' and ' ' are considered same.
-Conversion specification: It follows the following format:
-				
-Initial % character that specifies the beginning
-An optional * called assignment-suppressing character. If this character is present, vfwscanf() does not assign the result to any receiving argument.
-An optional positive integer number that specifies maximum field width. It specifies the maximum number of characters that vfwscanf() is allowed to consume when doing the conversion specified by the current conversion specification.
-An optional length modifier specifying the size of the receiving argument.
-A conversion format specifier.
-
-
-
-
-Format specifiers
-
-
-Format Specifier
-Description
-
-
-
-
-%
-Matches the literal %
-
-
-c
-Matches a single character or multiple characters. If width is defined, matches exactly width characters.
-
-
-s
-Matches consecutive non whitespace characters. If width is defined, matches exactly width characters or until first whitespace is found.
-
-
-[set]
-Matches a non empty sequence of character from the given set of characters. If ^ is present at the beginning of set, then all the characters not in set are matched.
-
-
-d
-Matches a decimal integer.
-
-
-i
-Matches an integer.
-
-
-o
-Matches an unsigned octal integer.
-
-
-X or x
-Matches an unsigned hexadecimal integer.
-
-
-u
-Matches an unsigned decimal integer.
-
-
-A or a, E or e, F or f, G or g
-Matches a floating-point number.
-
-
-n
-Returns the number of characters read so far.
-
-
-p
-Matches an implementation defined character sequence defining a pointer.
-
-
-
-
-		So the general format of format specifier is:
-		
-%[*][width][length]specifier
-
-vlist: A list of arguments for receiving the inputs.","क - Ka
-ख - Kha
-ग - Ga
-घ - Gha
-ङ - Nga",Cwchar
 vfwprintf(),The vfwprintf() function in C++ is used to write a formatted wide string to a file stream.,%[flags][width][.precision][length]specifier,"int vfwprintf( FILE* stream, const wchar_t* format, va_list vlist );","stream: Output file stream to write the result.
 format: A pointer to a null terminated wide string that is written to stream. It consists of characters along with optional format specifiers starting with %. The format specifiers are replaced by the values of respective variables that follows format.
 		The format specifier has the following parts:
@@ -7548,87 +7265,6 @@ int main()
 	return 0;
 }","wint_t ungetwc( wint_t ch, FILE* stream );","ch: The wide character to be pushed back.
 stream: File stream where the wide character is pushed back.",Value = 719,Cwchar
-swscanf(),The swscanf() function in C++ reads wide character from wide string buffer.,%[*][width][length]specifier,"int swscanf( const wchar_t* buffer, const wchar_t* format, ... );","buffer: Pointer to the wide string buffer to read the data from.
-format: Pointer to a null-terminated character string that specifies how to read the input. It consists of format specifiers starting with %.
-		The format string has the following parts:
-		
-Non whitespace characters except % each of which consumes one identical character from the input stream. It can cause the function to fail if the next character on the stream does not compare equal.
-Whitespace character: All the consecutive whitespace characters are treated as single whitespace character. Further, '\n', '\t' and ' ' are considered same.
-Conversion specification: It follows the following format:
-				
-Initial % character that specifies the beginning
-An optional * called assignment-suppressing character. If this character is present, swscanf() does not assign the result to any receiving argument.
-An optional positive integer number that specifies maximum field width. It specifies the maximum number of characters that swscanf() is allowed to consume when doing the conversion specified by the current conversion specification.
-An optional length modifier specifying the size of the receiving argument.
-A conversion format specifier.
-
-
-
-
-Format specifiers
-
-
-Format Specifier
-Description
-
-
-
-
-%
-Matches the literal %
-
-
-c
-Matches a single character or multiple characters. If width is defined, matches exactly width characters.
-
-
-s
-Matches consecutive non whitespace characters. If width is defined, matches exactly width characters or until first whitespace is found.
-
-
-[set]
-Matches a non empty sequence of character from the given set of characters. If ^ is present at the beginning of set, then all the characters not in set are matched.
-
-
-d
-Matches a decimal integer.
-
-
-i
-Matches an integer.
-
-
-o
-Matches an unsigned octal integer.
-
-
-X or x
-Matches an unsigned hexadecimal integer.
-
-
-u
-Matches an unsigned decimal integer.
-
-
-A or a, E or e, F or f, G or g
-Matches a floating-point number.
-
-
-n
-Returns the number of characters read so far.
-
-
-p
-Matches an implementation defined character sequence defining a pointer.
-
-
-
-
-		So the general format of format specifier is:
-		
-%[*][width][length]specifier
-
-… : Other additional arguments for receiving data. They occur in a sequence according to the format specifier.",θ is Theta,Cwchar
 swprintf(),The swprintf() function in C++ is used to write a formatted wide string to a wide string buffer.,%[flags][width][.precision][length]specifier,"int swprintf( wchar_t* buffer, size_t size, const wchar_t* format, ... );","buffer: Pointer to the string buffer to write the result.
 size: Specify maximum number of characters to be written to buffer which is size-1.
 format: A pointer to a null terminated wide string that is written to stdout. It consists of wide characters along with optional format specifiers starting with %. The format specifiers are replaced by the values of respective variables that follows format.
@@ -7739,32 +7375,6 @@ int main()
 	return 0;
 }",wint_t putwchar(wchar_t ch);,ch: The wide character to be written.,"Hebrew Alphabets
 א ב ג ד ה ו ז ח ט י ך כ ל ם מ ן נ ס ע ף פ ץ צ ק ר ש ת",Cwchar
-putwc(),The putwc() function in C++ writes a wide character to the given output stream.,"#include <iostream>
-#include <cwchar>
-#include <cstdio>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-
-	/* Devanagiri script */
-	wchar_t str[] = L""देवनागरि"";
-	FILE *fp = fopen(""file.txt"",""w"");
-
-	if (fp)
-	{
-		for(int i=0; i<wcslen(str); i++)
-			putwc(str[i],fp);
-	}
-	else
-		perror(""File opening failed"");
-
-	fclose(fp);
-	return 0;
-}","wint_t putwc( wchar_t ch, FILE* stream );","ch: The wide character to be written.
-stream: The output file stream to write the wide character.",देवनागरि,Cwchar
 getwchar(),The getwchar() function in C++ reads the next wide character from stdin.,"#include <iostream>
 #include <cwchar>
 #include <clocale>
@@ -7790,118 +7400,6 @@ int main()
 }",wint_t getwchar();,None.,"Enter characters, Press Enter to stop
 äs12 ɏ
 You entered : äs12 ɏ",Cwchar
-getwc(),The getwc() function in C++ reads the next wide character from the given input stream.,"#include <iostream>
-#include <cwchar>
-#include <cstdio>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	wint_t c;
-	FILE *fp = fopen(""file.txt"",""w+"");
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-
-	wchar_t str[] = L""\u0102\u01A5\u01A5\u0139\u011B"";// equivalent to ĂƥƥĹě
-	fputws(str, fp);
-	rewind(fp);
-
-	if (fp)
-	{
-		while(!feof(fp))
-		{
-			c = getwc(fp);
-			putwchar(c);
-		}
-	}
-	else
-		wcout << L""Error opening file"" << endl;
-
-	fclose(fp);
-	return 0;
-}",wint_t getwc(FILE* stream);,stream: The file stream to read the wide character.,ĂƥƥĹě,Cwchar
-fwscanf(),The fwscanf() function in C++ reads wide character from file stream.,%[*][width][length]specifier,"int fwscanf( FILE* stream, const wchar_t* format, ... );","stream: The input file stream to read the data from.
-format: Pointer to a null-terminated character string that specifies how to read the input. It consists of format specifiers starting with %.
-		The format string has the following parts:
-		
-Non whitespace characters except % each of which consumes one identical character from the input stream. It can cause the function to fail if the next character on the stream does not compare equal.
-Whitespace character: All the consecutive whitespace characters are treated as single whitespace character. Further, '\n', '\t' and ' ' are considered same.
-Conversion specification: It follows the following format:
-				
-Initial % character that specifies the beginning
-An optional * called assignment-suppressing character. If this character is present, fwscanf() does not assign the result to any receiving argument.
-An optional positive integer number that specifies maximum field width. It specifies the maximum number of characters that fwscanf() is allowed to consume when doing the conversion specified by the current conversion specification.
-An optional length modifier specifying the size of the receiving argument.
-A conversion format specifier.
-
-
-
-
-Format specifiers
-
-
-Format Specifier
-Description
-
-
-
-
-%
-Matches the literal %
-
-
-c
-Matches a single character or multiple characters. If width is defined, matches exactly width characters.
-
-
-s
-Matches consecutive non whitespace characters. If width is defined, matches exactly width characters or until first whitespace is found.
-
-
-[set]
-Matches a non empty sequence of character from the given set of characters. If ^ is present at the beginning of set, then all the characters not in set are matched.
-
-
-d
-Matches a decimal integer.
-
-
-i
-Matches an integer.
-
-
-o
-Matches an unsigned octal integer.
-
-
-X or x
-Matches an unsigned hexadecimal integer.
-
-
-u
-Matches an unsigned decimal integer.
-
-
-A or a, E or e, F or f, G or g
-Matches a floating-point number.
-
-
-n
-Returns the number of characters read so far.
-
-
-p
-Matches an implementation defined character sequence defining a pointer.
-
-
-
-
-		So the general format of format specifier is:
-		
-%[*][width][length]specifier
-
-… : Other additional arguments for receiving data. They occur in a sequence according to the format specifier.","∑ is Summation
-∫ is Integral",Cwchar
 fwprintf(),The fwprintf() function in C++ is used to write a formatted wide string to a file stream.,%[flags][width][.precision][length]specifier,"int fwprintf( FILE* stream, const wchar_t* format, ... );","stream: Pointer to an output file stream where the contents are written.
 format: A pointer to a null terminated wide string that is written to stdout. It consists of wide characters along with optional format specifiers starting with %. The format specifiers are replaced by the values of respective variables that follows format.
 		The format specifier has the following parts:
@@ -8024,110 +7522,6 @@ int main()
 mode: An integer value that determines whether to set or query the orientation of the stream.","Stream has no orientation
 Setting stream to wide-orientation
 Stream is wide-oriented",Cwchar
-fputws(),The fputws() function in C++ writes a wide string completely except the terminating null wide character to the given output file stream.,"#include <cwchar>
-#include <cstdio>
-#include <clocale>
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-	wchar_t line[] = L""C++ ċăn haŉđle tĥeșë veɍƴ ŵeįrd čhāråcŧerƨ"";
-	
-	fputws(line, stdout);
-	return 0;
-}","int fputws( const wchar_t* str, FILE* stream );","str: Pointer to an wide character array that stores the wide string to be written.
-stream: The output file stream to write the characters.",C++ ċăn haŉđle tĥeșë veɍƴ ŵeįrd čhāråcŧerƨ,Cwchar
-fputwc(),The fputwc() function in C++ writes a wide character to the given output stream.,"#include <iostream>
-#include <cwchar>
-#include <cstdio>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-
-	/* Devanagiri script */
-	wchar_t str[] = L""देवनागरि"";
-	
-	FILE *fp = fopen(""file.txt"",""w"");
-	if (fp)
-	{
-		for(int i=0; i<wcslen(str); i++)
-		fputwc(str[i],fp);
-	}
-	else
-		perror(""File opening failed"");
-
-	fclose(fp);
-	return 0;
-}","wint_t fputwc( wchar_t ch, FILE* stream );","ch: The wide character to be written.
-stream: The output file stream to write the wide character.",देवनागरि,Cwchar
-fgetws(),The fgetws() function in C++ reads a specified maximum number of wide characters from the given file stream.,"#include <iostream>
-#include <cwchar>
-#include <cstdio>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-	wchar_t line1[] = L""Hëĺĺo Everɏbȍdy\n"";
-	wchar_t line2[] = L""C++ ċăn haŉđle tĥeșë veɍƴ ŵeįrd čhāråcŧerƨ\n"";
-	wchar_t data[20];
-
-	FILE *fp = fopen(""file.txt"",""r+"");
-	fputws(line1, fp);
-	fputws(line2, fp);
-	rewind(fp);
-
-	while(true)
-	{
-		fgetws(data, 20, fp);
-		if(!feof(fp))
-			wcout << data << endl;
-		else
-			break;
-	}
-
-	fclose(fp);
-	return 0;
-}","wchar_t* fgetws( wchar_t* str, int count, FILE* stream );","str: Pointer to an wide character array that stores the content of file.
-count: Maximum number of wide characters to write.
-stream: The file stream to read the wide characters.","Hëĺĺo Everɏbȍdy
-C++ ċăn haŉđle tĥeș
-ë veɍƴ ŵeįrd čhāråc
-ŧerƨ",Cwchar
-fgetwc(),The fgetwc() function in C++ reads the next wide character from the given input stream.,"#include <iostream>
-#include <cwchar>
-#include <cstdio>
-#include <clocale>
-using namespace std;
-
-int main()
-{
-	wint_t c;
-	FILE *fp = fopen(""file.txt"",""r+"");
-
-	setlocale(LC_ALL, ""en_US.UTF-8"");
-	wchar_t str[] = L""\u0102\u01A5\u01A5\u0139\u011B"";// equivalent to ĂƥƥĹě
-
-	fputws(str, fp);
-	rewind(fp);
-	if (fp)
-	{
-		while(!feof(fp))
-		{
-			c = fgetwc(fp);
-			putwchar(c);
-		}
-	}
-	else
-	wcout << L""Error opening file"" << endl;
-
-	fclose(fp);
-	return 0;
-}",wint_t fgetwc(FILE* stream);,stream: The file stream to read the wide character.,ĂƥƥĹě,Cwchar
 mbrtoc32(),The mbrtoc32() function in C++ converts a narrow multibyte character to a 32 bit character representation.,"#include <cstdio>
 #include <cstdlib>
 #include <cuchar>
@@ -9463,5 +8857,3 @@ int main ()
 }",clock_t clock();,None,"Using pow function, it took 0.014743 seconds
 
 Without using pow function, it took 0.001357 seconds",Ctime
-hello.py,,,,,,
-test1,test1_desp,,,,,

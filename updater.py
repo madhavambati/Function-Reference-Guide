@@ -65,11 +65,25 @@ html_update.add_argument("--desp", help="desp of the function", type=str)
 html_update.add_argument("--tag", help="syntax of the function", type=str)
 html_update.add_argument("--example", help="example for the respective function", type=str)
 
+delete_function = subparser.add_parser("del", help="To delete function from database")
+delete_function.add_argument("--db", help="name of the db to be deleted from, available db's are: python, cpp, node, html", type=str, required=True)
+delete_function.add_argument("--name", help="name of the function  to be deleted from the respective Db", type=str, required=True)
 
 args = parser.parse_args()
 
+def delete(db, function_name):
+
+	if function_name in db.index.tolist():
+		db.drop([function_name], inplace=True)
+		print("*** Successfully deleted from the Database ***\n")
+		print("Updates will be reflected after 12am today automatically")
+		print("To see the updates immediately please run \"auto_updater.py\" file")
+		return db
+	else:
+		return None
+
 if args.command == "python":
-	df_python = pd.read_csv("updated/python.csv", sep=',', encoding='cp1252', index_col=False)
+	df_python = pd.read_csv("updated/python.csv", index_col=False)
 	if args.name not in df_python["name"].tolist():
 		
 		df_update_python = {"name": args.name, "desp":args.desp, "example_input":args.example
@@ -77,7 +91,7 @@ if args.command == "python":
 				   ,  "Parameters": args.parameters, "param_description": args.param_desp}
 
 		df_python = df_python.append(df_update_python, ignore_index=True)
-		df_python.to_csv("updated/python.csv", index=False)
+		df_python.to_csv("updated/python.csv", index=False, encoding="utf-8")
 		print("*** Successfully added to the Database ***\n")
 		print("Updates will be reflected after 12am today automatically")
 		print("To see the updates immediately please run \"auto_updater.py\" file")
@@ -85,7 +99,7 @@ if args.command == "python":
 		print("Error: " + args.name + " already exists in Database")
 
 if args.command == "node":
-	df_nodejs = pd.read_csv("updated/nodeJS.csv", sep=',', encoding='cp1252')
+	df_nodejs = pd.read_csv("updated/nodeJS.csv", index_col=False)
 	if args.name not in df_nodejs["name"].tolist():
 		
 		df_update_node = {"name": args.name, "desp":args.desp, "example_input":args.example
@@ -93,7 +107,7 @@ if args.command == "node":
 				   ,  "Parameters": args.parameters, "param_description": args.param_desp}
 
 		df_nodejs = df_nodejs.append(df_update_node, ignore_index=True)
-		df_nodejs.to_csv("updated/nodeJS.csv", index=False)
+		df_nodejs.to_csv("updated/nodeJS.csv", index=False, encoding="utf-8")
 		print("*** Successfully added to the Database ***\n")
 		print("Updates will be reflected after 12am today automatically")
 		print("To see the updates immediately please run \"auto_updater.py\" file")
@@ -101,7 +115,7 @@ if args.command == "node":
 		print("Error: " + args.name + " already exists in Database")
 
 if args.command == "cpp":
-	df_cpp = pd.read_csv("updated/cpp.csv", sep=',')
+	df_cpp = pd.read_csv("updated/cpp.csv", index_col=False)
 	if args.name not in df_cpp["name"].tolist():
 		
 		df_update_cpp = {"name": args.name, "desp":args.desp, "example":args.example
@@ -109,7 +123,7 @@ if args.command == "cpp":
 				   , "module": args.module, "parameter": args.parameters}
 
 		df_cpp = df_cpp.append(df_update_cpp, ignore_index=True)
-		df_cpp.to_csv("updated/cpp.csv", index=False)
+		df_cpp.to_csv("updated/cpp.csv", index=False, encoding="utf-8")
 		print("*** Successfully added to the Database ***\n")
 		print("Updates will be reflected after 12am today automatically")
 		print("To see the updates immediately please run \"auto_updater.py\" file")
@@ -119,7 +133,7 @@ if args.command == "cpp":
 
 if args.command == "html":
 
-	df_html = pd.read_csv("updated/html.csv", sep=',', encoding='cp1252')
+	df_html = pd.read_csv("updated/html.csv", index_col=False)
 	if args.name not in df_html["name"].tolist():
 		if args.tag is None:
 			tag = "<" + args.name + ">"
@@ -129,10 +143,55 @@ if args.command == "html":
 						  , "example_input":args.example, "tag":tag }
 
 		df_html = df_html.append(df_update_html, ignore_index=True)
-		df_html.to_csv("updated/html.csv", index=False)
+		df_html.to_csv("updated/html.csv", index=False, encoding="utf-8")
 		print("*** Successfully added to the Database ***\n")
 		print("Updates will be reflected after 12am today automatically")
 		print("To see the updates immediately please run \"auto_updater.py\" file")
 	else:
 		print("Error: " + args.name + " already exists in Database")
+
+if args.command == "del":
+
+	function = str(args.name)
+	
+	if args.db == "python":
+		df_python = pd.read_csv("updated/python.csv", index_col="name")
+		df_python = delete(df_python, function)
+		if df_python is not None:
+			df_python.to_csv("updated/python.csv", encoding="utf-8")
+		else:
+			print(function + " is not found in "+ args.db +" database.")
+
+	if args.db == "cpp":
+		df_cpp = pd.read_csv("updated/cpp.csv", index_col="name")
+		df_cpp = delete(df_cpp, function)
+		if df_cpp is not None:
+			df_cpp.to_csv("updated/cpp.csv", encoding="utf-8")
+		else:
+			print(function + " is not found in "+ args.db +" database.")
+
+	if args.db == "node":
+
+		df_nodejs = pd.read_csv("updated/nodeJS.csv", index_col="name")
+		df_nodejs = delete(df_nodejs, function)
+		if df_nodejs is not None:
+			df_nodejs.to_csv("updated/nodeJS.csv", encoding="utf-8")
+		else:
+			print(function + " is not found in "+ args.db +" database.")
+
+	if args.db == "html":
+		df_html = pd.read_csv("updated/html.csv", index_col="name")
+		df_html = delete(df_html, function)
+		if df_html is not None:
+			df_html.to_csv("updated/html.csv", encoding="utf-8")
+		else:
+			print(function + " is not found in "+ args.db +" database.")
+
+	data = args.db
+	if data != "python" and data != "cpp" and  data != "node" and  data != "html":
+		print(" db name error")
+		print(" available db names are:")
+		print(" python \n cpp \n node \n html \n")
+
+
 
