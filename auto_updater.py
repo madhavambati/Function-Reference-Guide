@@ -11,7 +11,6 @@ import argparse
 def auto_updater():
 	src = "updated/"
 	dst = "new_database/"
-	logs = ""
 	logs_file = "logs.txt"
 	file = open(logs_file, 'a')
 
